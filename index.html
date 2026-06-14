@@ -1,1152 +1,1915 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAPELL BIO — 创新咖啡·零碳未来</title>
-    <meta name="description" content="NAPELL BIO 通过组培技术与雾化水培种植模式，重塑全球咖啡产业链，实现前所未有的碳减排与水资源节约。">
+    <title>NAPELL.COM — Reinventing Coffee. Zero Carbon Future.</title>
+    <meta name="description" content="NAPELL.COM reshapes the global coffee supply chain through tissue culture and aeroponic farming — delivering unprecedented carbon reduction and water conservation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0a0b;
-            --bg-card: #141517;
-            --bg-card-hover: #1a1c1f;
-            --bg-nav: rgba(10, 10, 11, 0.85);
-            --border: #2a2d31;
-            --border-light: #35383d;
-            --text: #e4e4e7;
+            --bg: #09090b;
+            --bg-elevated: #111114;
+            --bg-card: #141417;
+            --bg-card-hover: #1a1a1f;
+            --bg-nav: rgba(9, 9, 11, 0.92);
+            --border: #222226;
+            --border-light: #2e2e33;
+            --border-accent: #333338;
+            --text: #f4f4f5;
             --text-secondary: #a1a1aa;
-            --text-tertiary: #71717a;
-            --accent: #f0f0f0;
-            --accent-green: #4ade80;
-            --accent-blue: #60a5fa;
-            --accent-amber: #fbbf24;
-            --accent-red: #f87171;
-            --accent-teal: #2dd4bf;
-            --accent-rose: #fb7185;
-            --radius: 12px;
-            --radius-sm: 8px;
-            --radius-lg: 16px;
-            --font: 'Inter', 'SF Pro Display', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
-            --nav-height: 56px;
+            --text-tertiary: #6b6b75;
+            --text-dim: #52525b;
+            --accent: #fafafa;
+            --green: #22c55e;
+            --green-bg: rgba(34, 197, 94, 0.08);
+            --green-border: rgba(34, 197, 94, 0.2);
+            --blue: #3b82f6;
+            --blue-bg: rgba(59, 130, 246, 0.08);
+            --blue-border: rgba(59, 130, 246, 0.2);
+            --amber: #f59e0b;
+            --amber-bg: rgba(245, 158, 11, 0.08);
+            --amber-border: rgba(245, 158, 11, 0.2);
+            --teal: #14b8a6;
+            --teal-bg: rgba(20, 184, 166, 0.08);
+            --teal-border: rgba(20, 184, 166, 0.2);
+            --rose: #f43f5e;
+            --rose-bg: rgba(244, 63, 94, 0.08);
+            --rose-border: rgba(244, 63, 94, 0.2);
+            --violet: #8b5cf6;
+            --violet-bg: rgba(139, 92, 246, 0.08);
+            --violet-border: rgba(139, 92, 246, 0.2);
+            --radius: 14px;
+            --radius-sm: 10px;
+            --radius-lg: 18px;
+            --radius-xl: 24px;
+            --font: 'Inter', system-ui, -apple-system, sans-serif;
+            --nav-height: 64px;
             --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.6);
+            --shadow-glow-green: 0 0 40px rgba(34, 197, 94, 0.1);
+            --shadow-glow-blue: 0 0 40px rgba(59, 130, 246, 0.1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: var(--nav-height);
-            /* 字体基准放大至20px，提升阅读舒适度 */
-            font-size: 20px;
+            scroll-padding-top: calc(var(--nav-height) + 24px);
+            font-size: 16px;
         }
 
         body {
             font-family: var(--font);
             background: var(--bg);
             color: var(--text);
-            line-height: 1.5;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* ===== NAVIGATION ===== */
+        /* ========== NAVIGATION ========== */
         .nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 1000;
             height: var(--nav-height);
             background: var(--bg-nav);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 0 32px;
             transition: var(--transition);
         }
-        .nav-logo {
+        .nav-brand {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            font-size: 1.15rem;
-            letter-spacing: 0.04em;
-            color: var(--accent);
+            gap: 12px;
             text-decoration: none;
-            white-space: nowrap;
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 1.3rem;
+            letter-spacing: -0.02em;
             user-select: none;
+            flex-shrink: 0;
         }
-        .nav-logo .logo-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--accent);
-            color: #0a0a0b;
+        .nav-brand .brand-mark {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--green) 0%, var(--teal) 100%);
+            color: #09090b;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 900;
-            font-size: 0.7rem;
-            letter-spacing: 0;
+            font-size: 0.75rem;
             flex-shrink: 0;
         }
-        .nav-links {
+        .nav-menu {
             display: flex;
-            gap: 4px;
+            align-items: center;
+            gap: 2px;
             list-style: none;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            mask-image: linear-gradient(to left, transparent, black 8%, black 92%, transparent);
-            -webkit-mask-image: linear-gradient(to left, transparent, black 8%, black 92%, transparent);
-            padding: 0 8px;
         }
-        .nav-links::-webkit-scrollbar {
-            display: none;
+        .nav-menu > li {
+            position: relative;
         }
-        .nav-links a {
+        .nav-menu > li > a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 500;
-            padding: 7px 12px;
-            border-radius: 20px;
+            padding: 8px 14px;
+            border-radius: 8px;
             white-space: nowrap;
             transition: var(--transition);
-            letter-spacing: 0.01em;
+            letter-spacing: -0.01em;
+            cursor: pointer;
         }
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-menu > li > a:hover,
+        .nav-menu > li > a.active {
             color: var(--accent);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.06);
         }
-        .nav-contact-mobile {
-            display: none;
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-            white-space: nowrap;
+        .nav-menu > li > a .chevron {
+            font-size: 0.6rem;
+            transition: transform 0.2s ease;
+            margin-left: 1px;
+        }
+        .nav-menu > li:hover > a .chevron {
+            transform: rotate(180deg);
         }
 
-        /* ===== MAIN CONTENT ===== */
+        /* ===== DROPDOWN MEGA MENU ===== */
+        .dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) translateY(6px);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            min-width: 360px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-lg);
+            pointer-events: none;
+            z-index: 1001;
+        }
+        .nav-menu > li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+        .dropdown::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px; height: 12px;
+            background: var(--bg-elevated);
+            border-left: 1px solid var(--border);
+            border-top: 1px solid var(--border);
+            border-radius: 3px;
+            rotate: 45deg;
+        }
+        .dropdown-header {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-dim);
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+        }
+        .dropdown-grid.single { grid-template-columns: 1fr; }
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .dropdown-item:hover {
+            background: rgba(255,255,255,0.05);
+            color: var(--accent);
+        }
+        .dropdown-item .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .dropdown-item .dot.green { background: var(--green); }
+        .dropdown-item .dot.blue { background: var(--blue); }
+        .dropdown-item .dot.amber { background: var(--amber); }
+        .dropdown-item .dot.teal { background: var(--teal); }
+        .dropdown-item .dot.rose { background: var(--rose); }
+        .dropdown-item .dot.violet { background: var(--violet); }
+
+        .nav-cta {
+            margin-left: 8px;
+            padding: 8px 18px;
+            background: var(--green);
+            color: #09090b;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .nav-cta:hover {
+            background: #16a34a;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-glow-green);
+        }
+
+        /* Mobile hamburger */
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        /* ========== MAIN ========== */
         .main {
             padding-top: var(--nav-height);
         }
 
-        /* ===== SECTION ===== */
-        .section {
+        /* ========== PAGE / SECTION ========== */
+        .page {
+            display: none;
             min-height: calc(100vh - var(--nav-height));
-            padding: 40px 24px 60px;
-            display: flex;
-            flex-direction: column;
+        }
+        .page.active {
+            display: block;
+        }
+        .page-content {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 48px 32px 80px;
+        }
+
+        /* ========== PAGE HEADER ========== */
+        .page-header {
+            margin-bottom: 40px;
+        }
+        .page-badge {
+            display: inline-flex;
             align-items: center;
-            border-bottom: 1px solid var(--border);
-        }
-        .section:last-of-type {
-            border-bottom: none;
-        }
-        .section-inner {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-        }
-        .section-header {
-            display: flex;
-            flex-direction: column;
             gap: 6px;
-        }
-        .section-tag {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent-teal);
+            font-size: 0.72rem;
             font-weight: 600;
-        }
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--accent);
-            line-height: 1.2;
-        }
-        .section-subtitle {
-            font-size: 0.9rem;
-            color: var(--text-tertiary);
-            max-width: 600px;
-        }
-
-        /* ===== DASHBOARD GRID ===== */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 14px;
-            width: 100%;
-        }
-        .dashboard-grid.cols-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        .dashboard-grid.cols-3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        .dashboard-grid.cols-4 {
-            grid-template-columns: repeat(4, 1fr);
-        }
-        @media (max-width: 900px) {
-            .dashboard-grid.cols-2,
-            .dashboard-grid.cols-3,
-            .dashboard-grid.cols-4 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 560px) {
-            .dashboard-grid.cols-2,
-            .dashboard-grid.cols-3,
-            .dashboard-grid.cols-4,
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-            .section {
-                padding: 28px 14px 40px;
-            }
-            .section-title {
-                font-size: 1.4rem;
-            }
-            .nav-links a {
-                font-size: 0.7rem;
-                padding: 6px 10px;
-            }
-            .nav-logo {
-                font-size: 0.95rem;
-            }
-        }
-
-        /* ===== CARD ===== */
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 20px 22px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        .card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-light);
-            transform: translateY(-1px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-        }
-        .card .card-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
             letter-spacing: 0.06em;
-            color: var(--text-tertiary);
-            font-weight: 500;
+            text-transform: uppercase;
+            color: var(--green);
+            background: var(--green-bg);
+            border: 1px solid var(--green-border);
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
         }
-        .card .card-value {
-            font-size: 2.2rem;
+        .page-badge.blue { color: var(--blue); background: var(--blue-bg); border-color: var(--blue-border); }
+        .page-badge.amber { color: var(--amber); background: var(--amber-bg); border-color: var(--amber-border); }
+        .page-badge.teal { color: var(--teal); background: var(--teal-bg); border-color: var(--teal-border); }
+        .page-badge.rose { color: var(--rose); background: var(--rose-bg); border-color: var(--rose-border); }
+        .page-title {
+            font-size: 2.4rem;
             font-weight: 800;
             letter-spacing: -0.03em;
             color: var(--accent);
-            line-height: 1;
+            line-height: 1.15;
+            margin-bottom: 8px;
         }
-        .card .card-value.highlight-green {
-            color: var(--accent-green);
-        }
-        .card .card-value.highlight-blue {
-            color: var(--accent-blue);
-        }
-        .card .card-value.highlight-amber {
-            color: var(--accent-amber);
-        }
-        .card .card-value.highlight-teal {
-            color: var(--accent-teal);
-        }
-        .card .card-value.highlight-rose {
-            color: var(--accent-rose);
-        }
-        .card .card-desc {
-            font-size: 0.78rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-        .card .card-icon {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            font-size: 1.4rem;
-            opacity: 0.4;
-        }
-        .card-accent-top {
-            border-top: 3px solid var(--accent-teal);
-        }
-        .card-accent-top.green {
-            border-top-color: var(--accent-green);
-        }
-        .card-accent-top.blue {
-            border-top-color: var(--accent-blue);
-        }
-        .card-accent-top.amber {
-            border-top-color: var(--accent-amber);
-        }
-        .card-accent-top.rose {
-            border-top-color: var(--accent-rose);
+        .page-subtitle {
+            font-size: 1rem;
+            color: var(--text-tertiary);
+            max-width: 600px;
+            line-height: 1.6;
         }
 
-        /* ===== FULL-WIDTH CARD ===== */
-        .card-full {
-            grid-column: 1 / -1;
+        /* ========== DASHBOARD GRID ========== */
+        .dash-grid {
+            display: grid;
+            gap: 16px;
+            width: 100%;
+        }
+        .dash-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .dash-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .dash-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+        /* ========== STAT CARD ========== */
+        .stat-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 24px 26px;
+            border-radius: var(--radius);
+            padding: 22px 24px;
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+        .stat-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .stat-card.accent-green::after { background: linear-gradient(90deg, var(--green), transparent); }
+        .stat-card.accent-blue::after { background: linear-gradient(90deg, var(--blue), transparent); }
+        .stat-card.accent-amber::after { background: linear-gradient(90deg, var(--amber), transparent); }
+        .stat-card.accent-teal::after { background: linear-gradient(90deg, var(--teal), transparent); }
+        .stat-card.accent-rose::after { background: linear-gradient(90deg, var(--rose), transparent); }
+        .stat-card.accent-violet::after { background: linear-gradient(90deg, var(--violet), transparent); }
+        .stat-card:hover::after { opacity: 1; }
+        .stat-card .stat-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--text-dim);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .stat-card .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: var(--accent);
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+        .stat-card:hover .stat-value.green { color: var(--green); }
+        .stat-card:hover .stat-value.blue { color: var(--blue); }
+        .stat-card:hover .stat-value.amber { color: var(--amber); }
+        .stat-card:hover .stat-value.teal { color: var(--teal); }
+        .stat-card:hover .stat-value.rose { color: var(--rose); }
+        .stat-card .stat-desc {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+        .stat-card .stat-icon {
+            position: absolute;
+            top: 18px; right: 18px;
+            font-size: 1.5rem;
+            opacity: 0.15;
+            transition: opacity 0.3s ease;
+        }
+        .stat-card:hover .stat-icon { opacity: 0.3; }
+
+        /* ========== FULL-WIDTH PANEL ========== */
+        .panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 30px;
             transition: var(--transition);
         }
-        .card-full:hover {
+        .panel:hover {
             background: var(--bg-card-hover);
             border-color: var(--border-light);
         }
-        .card-full .card-full-title {
-            font-size: 1rem;
+        .panel-title {
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--accent);
-            margin-bottom: 12px;
-            letter-spacing: -0.01em;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
         }
 
-        /* ===== TABLE ===== */
-        .table-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            max-height: 520px;
-            overflow-y: auto;
-        }
-        .table-wrapper table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.78rem;
-            min-width: 640px;
-        }
-        .table-wrapper thead {
-            position: sticky;
-            top: 0;
-            z-index: 2;
-        }
-        .table-wrapper th {
-            background: #1a1c1f;
-            color: var(--text-secondary);
-            font-weight: 600;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 12px 14px;
-            text-align: left;
-            border-bottom: 2px solid var(--border);
-        }
-        .table-wrapper td {
-            padding: 10px 14px;
-            border-bottom: 1px solid var(--border);
-            color: var(--text);
-            white-space: nowrap;
-        }
-        .table-wrapper tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
-        }
-        .table-wrapper .num {
-            text-align: right;
-            font-variant-numeric: tabular-nums;
-            font-family: 'SF Mono', 'JetBrains Mono', 'Consolas', monospace;
-            font-size: 0.75rem;
-        }
-
-        /* ===== BAR CHART (CSS) ===== */
+        /* ========== BAR CHART ========== */
         .bar-chart {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 14px;
             width: 100%;
         }
         .bar-row {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 14px;
         }
         .bar-label {
-            width: 100px;
-            font-size: 0.72rem;
+            width: 170px;
+            font-size: 0.78rem;
             color: var(--text-secondary);
             text-align: right;
             flex-shrink: 0;
+            font-weight: 500;
         }
         .bar-track {
             flex: 1;
-            height: 22px;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 4px;
+            height: 28px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 6px;
             overflow: hidden;
             position: relative;
         }
         .bar-fill {
             height: 100%;
-            border-radius: 4px;
-            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 6px;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
-            padding-left: 8px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: #0a0a0b;
-            min-width: fit-content;
-        }
-        .bar-fill.teal {
-            background: var(--accent-teal);
-            color: #0a0a0b;
-        }
-        .bar-fill.green {
-            background: var(--accent-green);
-            color: #0a0a0b;
-        }
-        .bar-fill.blue {
-            background: var(--accent-blue);
-            color: #0a0a0b;
-        }
-        .bar-fill.amber {
-            background: var(--accent-amber);
-            color: #0a0a0b;
-        }
-        .bar-fill.rose {
-            background: var(--accent-rose);
-            color: #fff;
-        }
-        .bar-value {
-            width: 70px;
+            padding: 0 12px;
             font-size: 0.72rem;
+            font-weight: 700;
+            color: #09090b;
+        }
+        .bar-fill.green { background: var(--green); }
+        .bar-fill.blue { background: var(--blue); }
+        .bar-fill.amber { background: var(--amber); }
+        .bar-fill.teal { background: var(--teal); }
+        .bar-fill.rose { background: var(--rose); color: #fff; }
+        .bar-value {
+            width: 90px;
+            font-size: 0.78rem;
             color: var(--text);
             font-weight: 600;
             flex-shrink: 0;
             text-align: left;
         }
 
-        /* ===== HIGHLIGHT BOX ===== */
-        .highlight-box {
-            background: rgba(45, 212, 191, 0.06);
-            border: 1px solid rgba(45, 212, 191, 0.25);
-            border-radius: var(--radius);
-            padding: 18px 22px;
-            font-size: 0.85rem;
-            color: var(--accent-teal);
-            line-height: 1.6;
-            font-weight: 500;
+        /* ========== DATA TABLE ========== */
+        .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            max-height: 500px;
+            overflow-y: auto;
         }
-        .highlight-box.water {
-            background: rgba(96, 165, 250, 0.06);
-            border-color: rgba(96, 165, 250, 0.25);
-            color: var(--accent-blue);
+        .table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.78rem;
+            min-width: 600px;
         }
-        .highlight-box.crisis {
-            background: rgba(248, 113, 113, 0.06);
-            border-color: rgba(248, 113, 113, 0.25);
-            color: var(--accent-rose);
+        .table-wrap thead {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+        .table-wrap th {
+            background: #18181b;
+            color: var(--text-dim);
+            font-weight: 600;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 2px solid var(--border);
+        }
+        .table-wrap td {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            white-space: nowrap;
+        }
+        .table-wrap tbody tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+        .table-wrap .num {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            font-family: 'SF Mono', 'JetBrains Mono', 'Consolas', monospace;
+            font-size: 0.76rem;
         }
 
-        /* ===== CONTACT ===== */
+        /* ========== HIGHLIGHT BOX ========== */
+        .highlight {
+            padding: 20px 24px;
+            border-radius: var(--radius);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            font-weight: 500;
+            border: 1px solid;
+        }
+        .highlight.green { background: var(--green-bg); border-color: var(--green-border); color: var(--green); }
+        .highlight.blue { background: var(--blue-bg); border-color: var(--blue-border); color: var(--blue); }
+        .highlight.amber { background: var(--amber-bg); border-color: var(--amber-border); color: var(--amber); }
+        .highlight.teal { background: var(--teal-bg); border-color: var(--teal-border); color: var(--teal); }
+        .highlight.rose { background: var(--rose-bg); border-color: var(--rose-border); color: var(--rose); }
+        .highlight strong { color: var(--accent); }
+
+        /* ========== RING METER ========== */
+        .ring-meters {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .ring-meter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .ring-meter svg {
+            width: 130px; height: 130px;
+        }
+        .ring-meter .ring-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+        .ring-meter .ring-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        /* ========== CONTACT GRID ========== */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 14px;
             width: 100%;
+        }
+        @media (max-width: 480px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
         .contact-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 20px 22px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+            border-radius: var(--radius);
+            padding: 24px;
             text-align: center;
             transition: var(--transition);
+            cursor: default;
         }
         .contact-card:hover {
             background: var(--bg-card-hover);
             border-color: var(--border-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
-        .contact-card .contact-icon {
-            font-size: 1.6rem;
+        .contact-card .c-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
         }
-        .contact-card .contact-label {
-            font-size: 0.7rem;
+        .contact-card .c-label {
+            font-size: 0.68rem;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--text-tertiary);
+            letter-spacing: 0.07em;
+            color: var(--text-dim);
+            font-weight: 600;
+            margin-bottom: 6px;
         }
-        .contact-card .contact-value {
+        .contact-card .c-value {
             font-size: 0.9rem;
             font-weight: 600;
             color: var(--accent);
             word-break: break-all;
         }
 
-        /* ===== FOOTER ===== */
+        /* ========== FOOTER ========== */
         .footer {
             text-align: center;
-            padding: 30px 20px;
-            color: var(--text-tertiary);
-            font-size: 0.7rem;
+            padding: 32px;
+            color: var(--text-dim);
+            font-size: 0.72rem;
             letter-spacing: 0.03em;
             border-top: 1px solid var(--border);
+            background: var(--bg);
         }
 
-        /* ===== SCROLL ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .section-inner>* {
-            animation: fadeInUp 0.5s ease forwards;
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
-        .section-inner>*:nth-child(1) {
-            animation-delay: 0s;
+        .animate-fade-up {
+            animation: fadeUp 0.5s ease forwards;
         }
-        .section-inner>*:nth-child(2) {
-            animation-delay: 0.06s;
+        .animate-scale-in {
+            animation: scaleIn 0.35s ease forwards;
         }
-        .section-inner>*:nth-child(3) {
-            animation-delay: 0.12s;
-        }
-        .section-inner>*:nth-child(4) {
-            animation-delay: 0.18s;
-        }
-        .section-inner>*:nth-child(5) {
-            animation-delay: 0.24s;
-        }
+        .stagger-1 { animation-delay: 0s; }
+        .stagger-2 { animation-delay: 0.08s; }
+        .stagger-3 { animation-delay: 0.16s; }
+        .stagger-4 { animation-delay: 0.24s; }
+        .stagger-5 { animation-delay: 0.32s; }
+        .stagger-6 { animation-delay: 0.40s; }
 
-        /* ===== RESPONSIVE NAV ===== */
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .dash-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 1px;
-                padding: 0 4px;
-                mask-image: linear-gradient(to left, transparent, black 3%, black 97%, transparent);
-                -webkit-mask-image: linear-gradient(to left, transparent, black 3%, black 97%, transparent);
+            .nav { padding: 0 16px; }
+            .nav-hamburger { display: block; }
+            .nav-menu {
+                position: fixed;
+                top: var(--nav-height);
+                left: 0; right: 0;
+                background: var(--bg-nav);
+                backdrop-filter: blur(24px);
+                flex-direction: column;
+                padding: 12px;
+                border-bottom: 1px solid var(--border);
+                transform: translateY(-100%);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s ease;
+                max-height: calc(100vh - var(--nav-height));
+                overflow-y: auto;
             }
-            .nav-links a {
-                font-size: 0.7rem;
-                padding: 6px 8px;
-                border-radius: 16px;
+            .nav-menu.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
             }
-            .nav-logo {
-                font-size: 0.85rem;
-                gap: 6px;
+            .nav-menu > li { width: 100%; }
+            .nav-menu > li > a {
+                width: 100%;
+                padding: 12px 16px;
+                border-radius: 8px;
             }
-            .nav-logo .logo-icon {
-                width: 26px;
-                height: 26px;
-                font-size: 0.6rem;
+            .dropdown {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                box-shadow: none;
+                border: none;
+                padding: 4px 8px 12px 20px;
+                min-width: auto;
+                display: none;
+                background: transparent;
             }
+            .dropdown::before { display: none; }
+            .nav-menu > li:hover .dropdown,
+            .nav-menu > li.open .dropdown { display: block; }
+            .page-content { padding: 32px 16px 60px; }
+            .page-title { font-size: 1.6rem; }
+            .dash-grid.cols-2, .dash-grid.cols-3, .dash-grid.cols-4 {
+                grid-template-columns: 1fr;
+            }
+            .bar-label { width: 100px; font-size: 0.7rem; }
+            .bar-value { width: 65px; font-size: 0.7rem; }
+            .stat-card { padding: 16px 18px; }
+            .stat-card .stat-value { font-size: 1.5rem; }
+            .nav-cta { display: none; }
+            .ring-meters { flex-direction: column; align-items: center; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-brand { font-size: 1.05rem; gap: 8px; }
+            .nav-brand .brand-mark { width: 32px; height: 32px; font-size: 0.7rem; }
+            .page-title { font-size: 1.4rem; }
+            .page-subtitle { font-size: 0.85rem; }
+            .panel { padding: 18px 16px; }
+            .stat-card .stat-value { font-size: 1.3rem; }
+        }
+
+        /* Scroll-triggered reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== STAT DESC & DELTA ========== */
+        .stat-card .stat-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .stat-delta {
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+        .stat-delta.up { color: var(--green); }
+        .stat-delta.down { color: var(--rose); }
+
+        /* Counter animation */
+        .count-up { transition: all 0.8s ease; }
+
+        /* ========== REDUCTION CLICKABLE CARDS ========== */
+        .reduction-card {
+            cursor: pointer;
+            position: relative;
+            transition: all 0.25s ease;
+        }
+        .reduction-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+        }
+        .reduction-card::after {
+            content: 'Click for details';
+            position: absolute;
+            bottom: 10px;
+            right: 14px;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-weight: 500;
+        }
+        .reduction-card:hover::after {
+            opacity: 0.7;
+        }
+
+        /* ========== MODAL ========== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(9,9,11,0.85);
+            backdrop-filter: blur(6px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-box {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            max-width: 520px;
+            width: 90%;
+            padding: 28px 30px;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(12px);
+            transition: transform 0.25s ease;
+        }
+        .modal-overlay.active .modal-box {
+            transform: translateY(0);
+        }
+        .modal-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            font-size: 1.4rem;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+        .modal-close:hover {
+            background: rgba(255,255,255,0.06);
+            color: var(--accent);
+        }
+        .modal-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+        .modal-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .modal-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 14px;
+        }
+        .modal-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+        .modal-stat {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            text-align: center;
+        }
+        .modal-stat .ms-val {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .modal-stat .ms-lbl {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            margin-top: 2px;
         }
     </style>
 </head>
 <body>
 
-    <!-- ==================== NAVIGATION ==================== -->
-    <nav class="nav" id="topNav">
-        <a href="#home" class="nav-logo" title="NAPELL BIO — 首页">
-            <span class="logo-icon">NB</span> NAPELL BIO
-        </a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home" class="active">首页</a></li>
-            <li><a href="#carbon">碳排放</a></li>
-            <li><a href="#countries">国家数据</a></li>
-            <li><a href="#reduction">减排潜力</a></li>
-            <li><a href="#percapita">个人贡献</a></li>
-            <li><a href="#vision2050">2050愿景</a></li>
-            <li><a href="#water">水资源</a></li>
-            <li><a href="#contact">联系我们</a></li>
-        </ul>
-    </nav>
+<!-- ==================== NAVIGATION ==================== -->
+<nav class="nav" id="navbar">
+    <a href="#" class="nav-brand" data-page="home" title="NAPELL.COM">
+        <span class="brand-mark">NB</span>
+        NAPELL.COM
+    </a>
 
-    <!-- ==================== MAIN CONTENT ==================== -->
-    <main class="main">
+    <ul class="nav-menu" id="navMenu">
+        <!-- Dashboard dropdown -->
+        <li>
+            <a href="#" data-page="home" class="active">
+                Dashboard <span class="chevron">&#9662;</span>
+            </a>
+            <div class="dropdown">
+                <div class="dropdown-header">Key Metrics Overview</div>
+                <div class="dropdown-grid">
+                    <a href="#" class="dropdown-item" data-page="home" data-scroll="overview">
+                        <span class="dot green"></span> Overview
+                    </a>
+                    <a href="#" class="dropdown-item" data-page="home" data-scroll="emissions-chart">
+                        <span class="dot amber"></span> Emissions Breakdown
+                    </a>
+                </div>
+            </div>
+        </li>
 
-        <!-- ========== SECTION 1: HOME ========== -->
-        <section class="section" id="home">
-            <div class="section-inner">
-                <div class="section-header">
-                    <span class="section-tag">· 概览 ·</span>
-                    <h1 class="section-title">全球咖啡产业碳排放总览</h1>
-                    <p class="section-subtitle">NAPELL BIO 通过组培技术与雾化水培种植模式，重塑产业链——从根源上削减碳排放，创造前所未有的生态价值。</p>
+        <!-- Carbon dropdown -->
+        <li>
+            <a href="#" data-page="carbon">
+                Carbon <span class="chevron">&#9662;</span>
+            </a>
+            <div class="dropdown">
+                <div class="dropdown-header">Carbon Footprint Analysis</div>
+                <div class="dropdown-grid">
+                    <a href="#" class="dropdown-item" data-page="carbon" data-scroll="carbon-compare">
+                        <span class="dot blue"></span> Country Comparison
+                    </a>
+                    <a href="#" class="dropdown-item" data-page="carbon" data-scroll="country-table">
+                        <span class="dot amber"></span> 116 Countries Data
+                    </a>
                 </div>
-                <div class="dashboard-grid cols-4">
-                    <div class="card card-accent-top">
-                        <span class="card-label">全球咖啡产业年碳排放（范围）</span>
-                        <span class="card-value">0.33 – 1.25</span>
-                        <span class="card-desc">亿吨 CO₂e / 年，相当于一个中等发达国家的年碳足迹</span>
-                    </div>
-                    <div class="card card-accent-top amber">
-                        <span class="card-label">每日排放量</span>
-                        <span class="card-value highlight-amber">164 – 342</span>
-                        <span class="card-desc">万吨 CO₂e / 天（含直接+间接全产业链）</span>
-                    </div>
-                    <div class="card card-accent-top blue">
-                        <span class="card-label">种植环节占比</span>
-                        <span class="card-value highlight-blue">40% – 80%</span>
-                        <span class="card-desc">种植生产是最大排放源，化肥、毁林、灌溉是主要驱动</span>
-                    </div>
-                    <div class="card card-accent-top green">
-                        <span class="card-label">创新技术减排潜力</span>
-                        <span class="card-value highlight-green">~67%</span>
-                        <span class="card-desc">组培+雾化水培+清洁能源+就近消费，全链减排可达3,000万吨/年</span>
-                    </div>
+            </div>
+        </li>
+
+        <!-- Reduction dropdown -->
+        <li>
+            <a href="#" data-page="reduction">
+                Reduction <span class="chevron">&#9662;</span>
+            </a>
+            <div class="dropdown">
+                <div class="dropdown-header">Reduction Potential</div>
+                <div class="dropdown-grid">
+                    <a href="#" class="dropdown-item" data-page="reduction" data-scroll="reduction-metrics">
+                        <span class="dot green"></span> Chain Reduction
+                    </a>
+                    <a href="#" class="dropdown-item" data-page="reduction" data-scroll="reduction-table">
+                        <span class="dot teal"></span> Detailed Breakdown
+                    </a>
                 </div>
-                <div class="card-full">
-                    <div class="card-full-title">📊 产业链排放环节分布（中位情景：4,500万吨/年）</div>
-                    <div class="bar-chart">
-                        <div class="bar-row">
-                            <span class="bar-label">种植与加工</span>
-                            <div class="bar-track"><div class="bar-fill teal" style="width:60%">60%</div></div>
-                            <span class="bar-value">2,700万吨</span>
-                        </div>
-                        <div class="bar-row">
-                            <span class="bar-label">包装/零售/消费</span>
-                            <div class="bar-track"><div class="bar-fill blue" style="width:15%">15%</div></div>
-                            <span class="bar-value">675万吨</span>
-                        </div>
-                        <div class="bar-row">
-                            <span class="bar-label">其他（门店等）</span>
-                            <div class="bar-track"><div class="bar-fill amber" style="width:19.5%">19.5%</div></div>
-                            <span class="bar-value">877万吨</span>
-                        </div>
-                        <div class="bar-row">
-                            <span class="bar-label">烘焙</span>
-                            <div class="bar-track"><div class="bar-fill rose" style="width:4%">4%</div></div>
-                            <span class="bar-value">180万吨</span>
-                        </div>
-                        <div class="bar-row">
-                            <span class="bar-label">物流运输</span>
-                            <div class="bar-track"><div class="bar-fill green" style="width:1.5%">1.5%</div></div>
-                            <span class="bar-value">68万吨</span>
-                        </div>
+            </div>
+        </li>
+
+        <!-- Impact dropdown -->
+        <li>
+            <a href="#" data-page="impact">
+                Impact <span class="chevron">&#9662;</span>
+            </a>
+            <div class="dropdown">
+                <div class="dropdown-header">Per Capita &amp; Equivalents</div>
+                <div class="dropdown-grid">
+                    <a href="#" class="dropdown-item" data-page="impact" data-scroll="percapita">
+                        <span class="dot violet"></span> Per Person Impact
+                    </a>
+                    <a href="#" class="dropdown-item" data-page="impact" data-scroll="equivalents">
+                        <span class="dot amber"></span> Real-World Equivalents
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Vision dropdown -->
+        <li>
+            <a href="#" data-page="vision">
+                Vision 2050 <span class="chevron">&#9662;</span>
+            </a>
+            <div class="dropdown">
+                <div class="dropdown-header">2050 Ecological Outlook</div>
+                <div class="dropdown-grid single">
+                    <a href="#" class="dropdown-item" data-page="vision" data-scroll="vision-metrics">
+                        <span class="dot teal"></span> Blue Sky &amp; Biodiversity
+                    </a>
+                    <a href="#" class="dropdown-item" data-page="vision" data-scroll="water-section">
+                        <span class="dot blue"></span> Water Conservation
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Contact link -->
+        <li><a href="#" data-page="contact">Contact</a></li>
+    </ul>
+
+    <a href="#" data-page="contact" class="nav-cta">Get in Touch</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+</nav>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="main">
+
+    <!-- ========== PAGE: HOME / DASHBOARD OVERVIEW ========== -->
+    <section class="page active" id="page-home">
+        <div class="page-content">
+            <div id="overview"></div>
+            <div class="page-header animate-fade-up stagger-1">
+                <span class="page-badge">Overview</span>
+                <h1 class="page-title">Global Coffee Carbon Footprint</h1>
+                <p class="page-subtitle">NAPELL.COM leverages tissue culture and aeroponic farming to rebuild the coffee supply chain — cutting emissions at the root. All country data sourced from EDGAR 2024 (53.0 Gt CO&#8322;eq global).</p>
+            </div>
+
+            <!-- KPI Dashboard Row -->
+            <div class="dash-grid cols-4 reveal" style="margin-bottom:20px;">
+                <div class="stat-card accent-teal">
+                    <span class="stat-icon">&#127793;</span>
+                    <span class="stat-label">Annual Emissions (Range)</span>
+                    <span class="stat-value teal count-up" data-target="1.25" data-suffix=" Bt">0.33 – 1.25</span>
+                    <span class="stat-desc">Billion tonnes CO&#8322;e/year — equivalent to a mid-sized developed nation</span>
+                </div>
+                <div class="stat-card accent-amber">
+                    <span class="stat-icon">&#9200;</span>
+                    <span class="stat-label">Daily Emissions</span>
+                    <span class="stat-value amber">1.64 – 3.42</span>
+                    <span class="stat-desc">Million tonnes CO&#8322;e/day (full supply chain, direct + indirect)</span>
+                </div>
+                <div class="stat-card accent-blue">
+                    <span class="stat-icon">&#127793;</span>
+                    <span class="stat-label">Farming Share</span>
+                    <span class="stat-value blue">40% – 80%</span>
+                    <span class="stat-desc">Cultivation is the largest emitter — fertilizers, deforestation, irrigation</span>
+                </div>
+                <div class="stat-card accent-green">
+                    <span class="stat-icon">&#9889;</span>
+                    <span class="stat-label">Tech Reduction Potential</span>
+                    <span class="stat-value green count-up" data-target="67" data-suffix="%">~67%</span>
+                    <span class="stat-desc">Tissue culture + aeroponics + clean energy + local consumption</span>
+                </div>
+            </div>
+
+            <!-- Emissions Breakdown -->
+            <div id="emissions-chart"></div>
+            <div class="panel reveal" style="margin-bottom:40px;">
+                <div class="panel-title">Supply Chain Emissions Breakdown &mdash; Median Scenario: 45 Mt/yr</div>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label">Farming &amp; Processing</span>
+                        <div class="bar-track"><div class="bar-fill teal" style="width:0%" data-width="60%">60%</div></div>
+                        <span class="bar-value">27 Mt</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Packaging / Retail</span>
+                        <div class="bar-track"><div class="bar-fill blue" style="width:0%" data-width="15%">15%</div></div>
+                        <span class="bar-value">6.75 Mt</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Other (Cafes, etc.)</span>
+                        <div class="bar-track"><div class="bar-fill amber" style="width:0%" data-width="19.5%">19.5%</div></div>
+                        <span class="bar-value">8.77 Mt</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Roasting</span>
+                        <div class="bar-track"><div class="bar-fill rose" style="width:0%" data-width="4%">4%</div></div>
+                        <span class="bar-value">1.8 Mt</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Logistics</span>
+                        <div class="bar-track"><div class="bar-fill green" style="width:0%" data-width="1.5%">1.5%</div></div>
+                        <span class="bar-value">0.68 Mt</span>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- ========== SECTION 2: CARBON COMPARISON ========== -->
-        <section class="section" id="carbon">
-            <div class="section-inner">
-                <div class="section-header">
-                    <span class="section-tag">· 碳排放对比 ·</span>
-                    <h2 class="section-title">咖啡产业碳排放 ≈ 一个中小型发达国家</h2>
-                    <p class="section-subtitle">全球咖啡产业链的年排放体量，约占全球温室气体年排放的1%–3%，与以下国家的年总排放量相当。</p>
+            <!-- Bottom insight row -->
+            <div class="dash-grid cols-2 reveal">
+                <div class="highlight teal">
+                    <strong>&#128161; Key Insight:</strong> At the high-end estimate (125 Mt), coffee&rsquo;s carbon footprint exceeds the total annual emissions of <strong>158 countries</strong> worldwide. A single commodity outpaces nearly 80% of the world&rsquo;s nations.
                 </div>
-                <div class="dashboard-grid cols-3">
-                    <div class="card card-accent-top">
-                        <span class="card-label">下限 (0.33亿吨) 对标</span>
-                        <span class="card-value" style="font-size:1.3rem;">瑞典 / 丹麦</span>
-                        <span class="card-desc">瑞典年排放约4,000–5,000万吨；丹麦约4,600–5,600万吨</span>
-                    </div>
-                    <div class="card card-accent-top amber">
-                        <span class="card-label">中段 (0.60–0.80亿吨) 对标</span>
-                        <span class="card-value highlight-amber" style="font-size:1.3rem;">芬兰 / 爱尔兰 / 挪威</span>
-                        <span class="card-desc">芬兰3,900–5,400万吨；爱尔兰5,300–6,000万吨；挪威4,400–5,000万吨</span>
-                    </div>
-                    <div class="card card-accent-top rose">
-                        <span class="card-label">上限 (1.25亿吨) 对标</span>
-                        <span class="card-value highlight-rose" style="font-size:1.3rem;">超100个国家总和</span>
-                        <span class="card-desc">相当于日本(12.05亿吨)的10–15%、德国(7.99亿吨)的10–15%</span>
-                    </div>
-                </div>
-                <div class="highlight-box">
-                    💡 在最高估值（1.25亿吨）下，全球咖啡产业的碳排放超过全球约<strong>116个</strong>国家/地区的各自年度总排放量。这意味着仅咖啡一个产业，其碳足迹就超过了世界上一半以上国家的全国排放总和。
+                <div class="highlight green">
+                    <strong>&#127758; Opportunity:</strong> NAPELL.COM&rsquo;s integrated approach can eliminate up to <strong>38 Mt CO&#8322;e/year</strong> — equivalent to taking <strong>~15 million cars</strong> off the road permanently.
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ========== SECTION 3: COUNTRIES LIST ========== -->
-        <section class="section" id="countries">
-            <div class="section-inner">
-                <div class="section-header">
-                    <span class="section-tag">· EDGAR 2022 数据 ·</span>
-                    <h2 class="section-title">碳排放低于1.25亿吨的116个国家/地区</h2>
-                    <p class="section-subtitle">在咖啡产业最高估值下，以下116个国家/地区的年碳排放均低于全球咖啡产业链的总排放量。数据来源：EDGAR数据库，2022年。</p>
+    <!-- ========== PAGE: CARBON COMPARISON ========== -->
+    <section class="page" id="page-carbon">
+        <div class="page-content">
+            <div id="carbon-compare"></div>
+            <div class="page-header animate-fade-up stagger-1">
+                <span class="page-badge blue">Carbon Comparison</span>
+                <h1 class="page-title">Coffee vs. Nations</h1>
+                <p class="page-subtitle">The coffee industry&rsquo;s annual emissions volume rivals that of small-to-medium developed nations — accounting for ~0.24% of global GHG output (EDGAR 2024: 53.0 Gt CO&#8322;eq).</p>
+            </div>
+
+            <!-- Comparison cards -->
+            <div class="dash-grid cols-3 reveal" style="margin-bottom:20px;">
+                <div class="stat-card accent-teal">
+                    <span class="stat-label">Low Estimate (33 Mt)</span>
+                    <span class="stat-value teal" style="font-size:1.2rem;">Sweden / Denmark</span>
+                    <span class="stat-desc">Sweden 49 Mt; Denmark 42 Mt annual emissions</span>
                 </div>
-                <div class="table-wrapper">
+                <div class="stat-card accent-amber">
+                    <span class="stat-label">Mid Range (60–80 Mt)</span>
+                    <span class="stat-value amber" style="font-size:1.2rem;">Finland 43 Mt / Ireland 58 Mt</span>
+                    <span class="stat-desc">Finland 43 Mt; Ireland 58 Mt; Norway 57 Mt</span>
+                </div>
+                <div class="stat-card accent-rose">
+                    <span class="stat-label">High Estimate (125 Mt)</span>
+                    <span class="stat-value rose" style="font-size:1.2rem;">158 Countries</span>
+                    <span class="stat-desc">0.8% of China&rsquo;s total &middot; 2.1% of USA&rsquo;s &middot; 3.0% of India&rsquo;s</span>
+                </div>
+            </div>
+
+            <!-- Ring meters for scale -->
+            <div class="panel reveal" style="margin-bottom:20px;">
+                <div class="panel-title">Emissions Scale Comparison (Million tonnes CO&#8322;e/year)</div>
+                <div class="ring-meters" id="ringMeters"></div>
+            </div>
+
+            <!-- Countries ABOVE 125 Mt -->
+            <div id="country-above"></div>
+            <div class="panel reveal" style="margin-bottom:20px;">
+                <div class="panel-title">Countries Above Coffee&rsquo;s Carbon Footprint (&gt;125 Mt CO&#8322;e) &mdash; EDGAR 2024</div>
+                <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:8px;line-height:1.7;">
+                    Only <strong style="color:var(--rose);">45 nations</strong> emit more than coffee's annual carbon footprint. These countries represent the world's largest economies and energy consumers — highlighting just how significant coffee's 125 Mt footprint truly is.
+                </p>
+                <div class="dash-grid cols-4" style="margin-top:20px;">
+                    <div class="stat-card" style="border-top:3px solid var(--rose);">
+                        <span class="stat-label">China</span>
+                        <span class="stat-value" style="font-size:1.15rem;">15,944 Mt</span>
+                        <span class="stat-desc">30.1% of global GHG</span>
+                    </div>
+                    <div class="stat-card" style="border-top:3px solid var(--rose);">
+                        <span class="stat-label">United States</span>
+                        <span class="stat-value" style="font-size:1.15rem;">5,961 Mt</span>
+                        <span class="stat-desc">11.3% of global GHG</span>
+                    </div>
+                    <div class="stat-card" style="border-top:3px solid var(--amber);">
+                        <span class="stat-label">India</span>
+                        <span class="stat-value" style="font-size:1.15rem;">4,134 Mt</span>
+                        <span class="stat-desc">7.8% of global GHG</span>
+                    </div>
+                    <div class="stat-card" style="border-top:3px solid var(--amber);">
+                        <span class="stat-label">Russia</span>
+                        <span class="stat-value" style="font-size:1.15rem;">2,672 Mt</span>
+                        <span class="stat-desc">5.0% of global GHG</span>
+                    </div>
+                </div>
+                <div class="table-wrap" style="margin-top:20px;">
                     <table>
                         <thead>
-                            <tr><th>#</th><th>国家/地区</th><th class="num">2022年排放量 (吨)</th></tr>
+                            <tr><th>#</th><th>Country / Region</th><th class="num">2024 Emissions (Mt CO&#8322;e)</th><th class="num">vs Coffee (125 Mt)</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>1</td><td>捷克共和国</td><td class="num">99,533,000</td></tr>
-                            <tr><td>2</td><td>孟加拉国</td><td class="num">96,180,000</td></tr>
-                            <tr><td>3</td><td>科威特</td><td class="num">92,582,000</td></tr>
-                            <tr><td>4</td><td>智利</td><td class="num">88,333,000</td></tr>
-                            <tr><td>5</td><td>哥伦比亚</td><td class="num">81,007,000</td></tr>
-                            <tr><td>6</td><td>阿曼</td><td class="num">76,321,000</td></tr>
-                            <tr><td>7</td><td>希腊</td><td class="num">70,163,000</td></tr>
-                            <tr><td>8</td><td>罗马尼亚</td><td class="num">68,746,000</td></tr>
-                            <tr><td>9</td><td>奥地利</td><td class="num">65,540,000</td></tr>
-                            <tr><td>10</td><td>以色列</td><td class="num">61,092,000</td></tr>
-                            <tr><td>11</td><td>摩洛哥</td><td class="num">60,200,000</td></tr>
-                            <tr><td>12</td><td>秘鲁</td><td class="num">54,996,000</td></tr>
-                            <tr><td>13</td><td>白俄罗斯</td><td class="num">54,695,000</td></tr>
-                            <tr><td>14</td><td>葡萄牙</td><td class="num">50,370,000</td></tr>
-                            <tr><td>15</td><td>匈牙利</td><td class="num">48,589,000</td></tr>
-                            <tr><td>16</td><td>瑞典</td><td class="num">48,144,000</td></tr>
-                            <tr><td>17</td><td>塞尔维亚</td><td class="num">47,735,000</td></tr>
-                            <tr><td>18</td><td>巴林</td><td class="num">43,112,000</td></tr>
-                            <tr><td>19</td><td>芬兰</td><td class="num">41,996,000</td></tr>
-                            <tr><td>20</td><td>老挝</td><td class="num">41,000,000</td></tr>
-                            <tr><td>21</td><td>厄瓜多尔</td><td class="num">40,000,000</td></tr>
-                            <tr><td>22</td><td>瑞士</td><td class="num">38,739,000</td></tr>
-                            <tr><td>23</td><td>阿塞拜疆</td><td class="num">38,000,000</td></tr>
-                            <tr><td>24</td><td>新西兰</td><td class="num">37,000,000</td></tr>
-                            <tr><td>25</td><td>丹麦</td><td class="num">36,000,000</td></tr>
-                            <tr><td>26</td><td>爱尔兰</td><td class="num">35,000,000</td></tr>
-                            <tr><td>27</td><td>挪威</td><td class="num">34,000,000</td></tr>
-                            <tr><td>28</td><td>斯洛伐克</td><td class="num">32,000,000</td></tr>
-                            <tr><td>29</td><td>缅甸</td><td class="num">31,848,000</td></tr>
-                            <tr><td>30</td><td>特立尼达和多巴哥</td><td class="num">30,000,000</td></tr>
-                            <tr><td>31</td><td>克罗地亚</td><td class="num">29,000,000</td></tr>
-                            <tr><td>32</td><td>保加利亚</td><td class="num">50,103,300</td></tr>
-                            <tr><td>33</td><td>突尼斯</td><td class="num">28,000,000</td></tr>
-                            <tr><td>34</td><td>黎巴嫩</td><td class="num">27,000,000</td></tr>
-                            <tr><td>35</td><td>也门</td><td class="num">26,000,000</td></tr>
-                            <tr><td>36</td><td>斯洛文尼亚</td><td class="num">25,000,000</td></tr>
-                            <tr><td>37</td><td>立陶宛</td><td class="num">24,000,000</td></tr>
-                            <tr><td>38</td><td>约旦</td><td class="num">23,000,000</td></tr>
-                            <tr><td>39</td><td>危地马拉</td><td class="num">22,000,000</td></tr>
-                            <tr><td>40</td><td>斯里兰卡</td><td class="num">21,000,000</td></tr>
-                            <tr><td>41</td><td>爱沙尼亚</td><td class="num">20,000,000</td></tr>
-                            <tr><td>42</td><td>卢森堡</td><td class="num">19,000,000</td></tr>
-                            <tr><td>43</td><td>哥斯达黎加</td><td class="num">18,000,000</td></tr>
-                            <tr><td>44</td><td>巴拿马</td><td class="num">17,000,000</td></tr>
-                            <tr><td>45</td><td>乌拉圭</td><td class="num">16,000,000</td></tr>
-                            <tr><td>46</td><td>巴拉圭</td><td class="num">15,000,000</td></tr>
-                            <tr><td>47</td><td>拉脱维亚</td><td class="num">14,000,000</td></tr>
-                            <tr><td>48</td><td>柬埔寨</td><td class="num">13,000,000</td></tr>
-                            <tr><td>49</td><td>阿富汗</td><td class="num">12,000,000</td></tr>
-                            <tr><td>50</td><td>尼泊尔</td><td class="num">11,000,000</td></tr>
-                            <tr><td>51</td><td>洪都拉斯</td><td class="num">10,000,000</td></tr>
-                            <tr><td>52</td><td>萨尔瓦多</td><td class="num">9,000,000</td></tr>
-                            <tr><td>53</td><td>尼加拉瓜</td><td class="num">8,000,000</td></tr>
-                            <tr><td>54</td><td>塞浦路斯</td><td class="num">8,024,000</td></tr>
-                            <tr><td>55</td><td>马耳他</td><td class="num">7,000,000</td></tr>
-                            <tr><td>56</td><td>乌干达</td><td class="num">6,000,000</td></tr>
-                            <tr><td>57</td><td>文莱</td><td class="num">5,000,000</td></tr>
-                            <tr><td>58</td><td>加蓬</td><td class="num">4,000,000</td></tr>
-                            <tr><td>59</td><td>阿尔巴尼亚</td><td class="num">3,000,000</td></tr>
-                            <tr><td>60</td><td>北马其顿</td><td class="num">2,000,000</td></tr>
-                            <tr><td>61</td><td>塔吉克斯坦</td><td class="num">1,500,000</td></tr>
-                            <tr><td>62</td><td>吉尔吉斯斯坦</td><td class="num">1,400,000</td></tr>
-                            <tr><td>63</td><td>亚美尼亚</td><td class="num">1,300,000</td></tr>
-                            <tr><td>64</td><td>格鲁吉亚</td><td class="num">1,200,000</td></tr>
-                            <tr><td>65</td><td>摩尔多瓦</td><td class="num">1,100,000</td></tr>
-                            <tr><td>66</td><td>冰岛</td><td class="num">1,000,000</td></tr>
-                            <tr><td>67</td><td>不丹</td><td class="num">934,000</td></tr>
-                            <tr><td>68</td><td>塞拉利昂</td><td class="num">899,000</td></tr>
-                            <tr><td>69</td><td>索马里</td><td class="num">882,000</td></tr>
-                            <tr><td>70</td><td>法罗群岛</td><td class="num">870,000</td></tr>
-                            <tr><td>71</td><td>开曼群岛</td><td class="num">808,000</td></tr>
-                            <tr><td>72</td><td>厄立特里亚</td><td class="num">798,000</td></tr>
-                            <tr><td>73</td><td>百慕大</td><td class="num">796,000</td></tr>
-                            <tr><td>74</td><td>莱索托</td><td class="num">736,000</td></tr>
-                            <tr><td>75</td><td>安提瓜和巴布达</td><td class="num">729,000</td></tr>
-                            <tr><td>76</td><td>布隆迪</td><td class="num">715,000</td></tr>
-                            <tr><td>77</td><td>圣卢西亚</td><td class="num">659,000</td></tr>
-                            <tr><td>78</td><td>吉布提</td><td class="num">610,000</td></tr>
-                            <tr><td>79</td><td>冈比亚</td><td class="num">606,000</td></tr>
-                            <tr><td>80</td><td>格陵兰</td><td class="num">605,000</td></tr>
-                            <tr><td>81</td><td>伯利兹</td><td class="num">541,000</td></tr>
-                            <tr><td>82</td><td>东帝汶</td><td class="num">538,000</td></tr>
-                            <tr><td>83</td><td>美属萨摩亚</td><td class="num">355,000</td></tr>
-                            <tr><td>84</td><td>萨摩亚</td><td class="num">355,000</td></tr>
-                            <tr><td>85</td><td>几内亚比绍</td><td class="num">342,000</td></tr>
-                            <tr><td>86</td><td>所罗门群岛</td><td class="num">333,000</td></tr>
-                            <tr><td>87</td><td>科摩罗</td><td class="num">326,000</td></tr>
-                            <tr><td>88</td><td>格林纳达</td><td class="num">316,000</td></tr>
-                            <tr><td>89</td><td>中非共和国</td><td class="num">285,000</td></tr>
-                            <tr><td>90</td><td>圣基茨和尼维斯</td><td class="num">268,000</td></tr>
-                            <tr><td>91</td><td>特克斯和凯科斯群岛</td><td class="num">245,000</td></tr>
-                            <tr><td>92</td><td>瓦努阿图</td><td class="num">225,000</td></tr>
-                            <tr><td>93</td><td>圣文森特和格林纳丁斯</td><td class="num">202,000</td></tr>
-                            <tr><td>94</td><td>多米尼克</td><td class="num">182,000</td></tr>
-                            <tr><td>95</td><td>圣多美和普林西比</td><td class="num">173,000</td></tr>
-                            <tr><td>96</td><td>英属维尔京群岛</td><td class="num">173,000</td></tr>
-                            <tr><td>97</td><td>汤加</td><td class="num">171,000</td></tr>
-                            <tr><td>98</td><td>库克群岛</td><td class="num">114,000</td></tr>
-                            <tr><td>99</td><td>圣皮埃尔和密克隆</td><td class="num">84,000</td></tr>
-                            <tr><td>100</td><td>基里巴斯</td><td class="num">76,000</td></tr>
-                            <tr><td>101</td><td>瑙鲁</td><td class="num">66,000</td></tr>
-                            <tr><td>102</td><td>福克兰群岛</td><td class="num">46,000</td></tr>
-                            <tr><td>103</td><td>蒙特塞拉特</td><td class="num">33,000</td></tr>
-                            <tr><td>104</td><td>圣赫勒拿</td><td class="num">13,000</td></tr>
-                            <tr><td>105</td><td>纽埃</td><td class="num">8,000</td></tr>
-                            <tr><td>106</td><td>蒙古</td><td class="num">未提供*</td></tr>
-                            <tr><td>107</td><td>博茨瓦纳</td><td class="num">未提供*</td></tr>
-                            <tr><td>108</td><td>埃塞俄比亚</td><td class="num">未提供*</td></tr>
-                            <tr><td>109</td><td>坦桑尼亚</td><td class="num">未提供*</td></tr>
-                            <tr><td>110</td><td>肯尼亚</td><td class="num">未提供*</td></tr>
-                            <tr><td>111</td><td>加纳</td><td class="num">未提供*</td></tr>
-                            <tr><td>112</td><td>科特迪瓦</td><td class="num">未提供*</td></tr>
-                            <tr><td>113</td><td>喀麦隆</td><td class="num">未提供*</td></tr>
-                            <tr><td>114</td><td>塞内加尔</td><td class="num">未提供*</td></tr>
-                            <tr><td>115</td><td>赞比亚</td><td class="num">未提供*</td></tr>
-                            <tr><td>116</td><td>津巴布韦</td><td class="num">未提供*</td></tr>
+                            <tr><td>1</td><td>China</td><td class="num">15,944</td><td class="num" style="color:var(--rose);">127.6x</td></tr>
+                            <tr><td>2</td><td>United States</td><td class="num">5,961</td><td class="num" style="color:var(--rose);">47.7x</td></tr>
+                            <tr><td>3</td><td>India</td><td class="num">4,134</td><td class="num" style="color:var(--rose);">33.1x</td></tr>
+                            <tr><td>4</td><td>Russia</td><td class="num">2,672</td><td class="num" style="color:var(--rose);">21.4x</td></tr>
+                            <tr><td>5</td><td>Brazil</td><td class="num">1,300</td><td class="num" style="color:var(--rose);">10.4x</td></tr>
+                            <tr><td>6</td><td>Indonesia</td><td class="num">1,200</td><td class="num" style="color:var(--rose);">9.6x</td></tr>
+                            <tr><td>7</td><td>Japan</td><td class="num">1,041</td><td class="num" style="color:var(--rose);">8.3x</td></tr>
+                            <tr><td>8</td><td>Iran</td><td class="num">997</td><td class="num" style="color:var(--rose);">8.0x</td></tr>
+                            <tr><td>9</td><td>Saudi Arabia</td><td class="num">805</td><td class="num" style="color:var(--rose);">6.4x</td></tr>
+                            <tr><td>10</td><td>Canada</td><td class="num">748</td><td class="num" style="color:var(--rose);">6.0x</td></tr>
+                            <tr><td>11</td><td>Mexico</td><td class="num">712</td><td class="num" style="color:var(--rose);">5.7x</td></tr>
+                            <tr><td>12</td><td>Germany</td><td class="num">682</td><td class="num" style="color:var(--rose);">5.5x</td></tr>
+                            <tr><td>13</td><td>South Korea</td><td class="num">654</td><td class="num" style="color:var(--rose);">5.2x</td></tr>
+                            <tr><td>14</td><td>Turkey</td><td class="num">606</td><td class="num" style="color:var(--amber);">4.9x</td></tr>
+                            <tr><td>15</td><td>Australia</td><td class="num">572</td><td class="num" style="color:var(--amber);">4.6x</td></tr>
+                            <tr><td>16</td><td>Pakistan</td><td class="num">532</td><td class="num" style="color:var(--amber);">4.3x</td></tr>
+                            <tr><td>17</td><td>Vietnam</td><td class="num">524</td><td class="num" style="color:var(--amber);">4.2x</td></tr>
+                            <tr><td>18</td><td>South Africa</td><td class="num">522</td><td class="num" style="color:var(--amber);">4.2x</td></tr>
+                            <tr><td>19</td><td>Thailand</td><td class="num">441</td><td class="num" style="color:var(--amber);">3.5x</td></tr>
+                            <tr><td>20</td><td>France</td><td class="num">386</td><td class="num" style="color:var(--amber);">3.1x</td></tr>
+                            <tr><td>21</td><td>Nigeria</td><td class="num">385</td><td class="num" style="color:var(--amber);">3.1x</td></tr>
+                            <tr><td>22</td><td>United Kingdom</td><td class="num">379</td><td class="num" style="color:var(--amber);">3.0x</td></tr>
+                            <tr><td>23</td><td>Italy</td><td class="num">374</td><td class="num" style="color:var(--amber);">3.0x</td></tr>
+                            <tr><td>24</td><td>Argentina</td><td class="num">366</td><td class="num" style="color:var(--amber);">2.9x</td></tr>
+                            <tr><td>25</td><td>Poland</td><td class="num">364</td><td class="num" style="color:var(--amber);">2.9x</td></tr>
+                            <tr><td>26</td><td>Iraq</td><td class="num">363</td><td class="num" style="color:var(--amber);">2.9x</td></tr>
+                            <tr><td>27</td><td>Egypt</td><td class="num">336</td><td class="num" style="color:var(--amber);">2.7x</td></tr>
+                            <tr><td>28</td><td>Malaysia</td><td class="num">325</td><td class="num" style="color:var(--amber);">2.6x</td></tr>
+                            <tr><td>29</td><td>Kazakhstan</td><td class="num">320</td><td class="num" style="color:var(--amber);">2.6x</td></tr>
+                            <tr><td>30</td><td>Taiwan, China</td><td class="num">308</td><td class="num" style="color:var(--amber);">2.5x</td></tr>
+                            <tr><td>31</td><td>Spain</td><td class="num">285</td><td class="num" style="color:var(--amber);">2.3x</td></tr>
+                            <tr><td>32</td><td>Bangladesh</td><td class="num">281</td><td class="num" style="color:var(--amber);">2.3x</td></tr>
+                            <tr><td>33</td><td>UAE</td><td class="num">268</td><td class="num" style="color:var(--amber);">2.1x</td></tr>
+                            <tr><td>34</td><td>Algeria</td><td class="num">257</td><td class="num" style="color:var(--amber);">2.1x</td></tr>
+                            <tr><td>35</td><td>Philippines</td><td class="num">256</td><td class="num" style="color:var(--amber);">2.0x</td></tr>
+                            <tr><td>36</td><td>Colombia</td><td class="num">224</td><td class="num" style="color:var(--amber);">1.8x</td></tr>
+                            <tr><td>37</td><td>Ukraine</td><td class="num">216</td><td class="num" style="color:var(--amber);">1.7x</td></tr>
+                            <tr><td>38</td><td>Uzbekistan</td><td class="num">215</td><td class="num" style="color:var(--amber);">1.7x</td></tr>
+                            <tr><td>39</td><td>Ethiopia</td><td class="num">170</td><td class="num" style="color:var(--amber);">1.4x</td></tr>
+                            <tr><td>40</td><td>Kuwait</td><td class="num">168</td><td class="num" style="color:var(--amber);">1.3x</td></tr>
+                            <tr><td>41</td><td>Qatar</td><td class="num">154</td><td class="num" style="color:var(--amber);">1.2x</td></tr>
+                            <tr><td>42</td><td>Venezuela</td><td class="num">152</td><td class="num" style="color:var(--amber);">1.2x</td></tr>
+                            <tr><td>43</td><td>Netherlands</td><td class="num">151</td><td class="num" style="color:var(--amber);">1.2x</td></tr>
+                            <tr><td>44</td><td>Sudan</td><td class="num">139</td><td class="num" style="color:var(--amber);">1.1x</td></tr>
+                            <tr><td>45</td><td>Oman</td><td class="num">127</td><td class="num" style="color:var(--amber);">1.0x</td></tr>
                         </tbody>
                     </table>
                 </div>
-                <p style="font-size:0.7rem;color:var(--text-tertiary);margin-top:4px;">* 标记"未提供"表示该国家/地区已知排放量低于1.25亿吨，但EDGAR数据库未列出具体数值。共116个国家/地区。</p>
+                <p style="font-size:0.7rem;color:var(--text-dim);margin-top:8px;">Source: EDGAR v2025_GHG (2023 data). JRC Report 2025. Total GHG emissions excluding LULUCF. 53.0 Gt CO&#8322;eq global total in 2023. Coffee footprint based on high-end estimate from Nab &amp; Maslin (2020) &amp; Starbucks (2018) comprehensive LCA studies.</p>
             </div>
-        </section>
 
-        <!-- ========== SECTION 4: REDUCTION POTENTIAL ========== -->
-        <section class="section" id="reduction">
-            <div class="section-inner">
-                <div class="section-header">
-                    <span class="section-tag">· 创新技术 ·</span>
-                    <h2 class="section-title">全产业链减排潜力测算</h2>
-                    <p class="section-subtitle">基于组培+雾化水培+清洁能源全覆盖+就近消费布局，对中位情景（4,500万吨/年）的全链减排进行量化分析。</p>
+            <!-- Countries Table -->
+            <div id="country-table"></div>
+            <div class="panel reveal">
+                <div class="panel-title">158 Countries Below Coffee&rsquo;s Carbon Footprint (125 Mt) &mdash; EDGAR 2024</div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>#</th><th>Country / Region</th><th class="num">2024 Emissions (t)</th></tr>
+                        </thead>
+                        <tbody id="countryTableBody"></tbody>
+                    </table>
                 </div>
-                <div class="dashboard-grid cols-3">
-                    <div class="card card-accent-top green">
-                        <span class="card-label">种植环节减排率</span>
-                        <span class="card-value highlight-green">80%</span>
-                        <span class="card-desc">组培+雾培精准供液+太阳能供电，减排2,160万吨</span>
-                    </div>
-                    <div class="card card-accent-top">
-                        <span class="card-label">包装/消费减排率</span>
-                        <span class="card-value">90%</span>
-                        <span class="card-desc">去包装化+根茎制杯+咖啡渣堆肥闭环，减排608万吨</span>
-                    </div>
-                    <div class="card card-accent-top amber">
-                        <span class="card-label">物流运输减排率</span>
-                        <span class="card-value highlight-amber">90%</span>
-                        <span class="card-desc">就近布局消除洲际海运+电动货车，减排61万吨</span>
-                    </div>
-                    <div class="card card-accent-top rose">
-                        <span class="card-label">烘焙环节</span>
-                        <span class="card-value highlight-rose">100%</span>
-                        <span class="card-desc">无需烘焙+低温萃取工艺+零碳能源闭环，减排180万吨</span>
-                    </div>
-                    <div class="card card-accent-top blue">
-                        <span class="card-label">总减排量</span>
-                        <span class="card-value highlight-blue">3,009万吨</span>
-                        <span class="card-desc">相当于全链碳排放基准的67%</span>
-                    </div>
-                    <div class="card card-accent-top green">
-                        <span class="card-label">含辅助环节后总减排</span>
-                        <span class="card-value highlight-green">3,500–3,800万吨</span>
-                        <span class="card-desc">总减排占比升至78%–84%，接近爱尔兰全年总排放</span>
-                    </div>
-                </div>
-                <div class="card-full">
-                    <div class="card-full-title">📋 全产业链减排明细表（中位情景：4,500万吨基准）</div>
-                    <div class="table-wrapper" style="max-height:350px;">
-                        <table>
-                            <thead>
-                                <tr><th>产业链环节</th><th class="num">基准排放(万吨)</th><th class="num">减排率</th><th class="num">减排量(万吨)</th><th class="num">剩余排放(万吨)</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>种植与加工</td><td class="num">2,700</td><td class="num">80%</td><td class="num" style="color:#4ade80;">2,160</td><td class="num">540</td></tr>
-                                <tr><td>包装与零售/消费</td><td class="num">675</td><td class="num">90%</td><td class="num" style="color:#4ade80;">608</td><td class="num">68</td></tr>
-                                <tr><td>物流运输</td><td class="num">68</td><td class="num">90%</td><td class="num" style="color:#4ade80;">61</td><td class="num">7</td></tr>
-                                <tr><td>烘焙</td><td class="num">180</td><td class="num">100%</td><td class="num" style="color:#f87171;">180</td><td class="num">0</td></tr>
-                                <tr><td>其他（门店/废弃物等）</td><td class="num">877</td><td class="num">0%</td><td class="num">0</td><td class="num">877</td></tr>
-                                <tr style="font-weight:700;border-top:2px solid var(--border);"><td>合计</td><td class="num">4,500</td><td class="num">—</td><td class="num" style="color:#4ade80;">3,009</td><td class="num">1,491</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <p style="font-size:0.7rem;color:var(--text-dim);margin-top:8px;">Source: EDGAR v2025_GHG dataset, JRC Report 2025 (doi:10.2760/9816914). All values from 2023 emissions year (latest available). Total global GHG: 53.0 Gt CO&#8322;eq. Table excludes 45 nations above 125 Mt threshold &mdash; see &ldquo;Countries Above&rdquo; panel above.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ========== SECTION 5: PER CAPITA ========== -->
-        <section class="section" id="percapita">
-            <div class="section-inner">
-                <div class="section-header">
-                    <span class="section-tag">· 个人贡献 ·</span>
-                    <h2 class="section-title">每人每天的减排贡献 & 商业活动等价</h2>
-                    <p class="section-subtitle">以全球20亿咖啡消费者为基数，将年减排3,600万吨（含辅助环节）转化为每人每天的可感知数字。</p>
+    <!-- ========== PAGE: REDUCTION POTENTIAL ========== -->
+    <section class="page" id="page-reduction">
+        <div class="page-content">
+            <div id="reduction-metrics"></div>
+            <div class="page-header animate-fade-up stagger-1">
+                <span class="page-badge green">Innovation</span>
+                <h1 class="page-title">Full-Chain Reduction Potential</h1>
+                <p class="page-subtitle">Quantified analysis based on tissue culture + aeroponic farming + 100% clean energy + localized consumption. Against the EDGAR 2024 median baseline of 45 Mt/year (0.085% of 53.0 Gt global total).</p>
+            </div>
+
+            <!-- Reduction KPI Cards -->
+            <div class="dash-grid cols-3 reveal" style="margin-bottom:20px;">
+                <div class="stat-card accent-green reduction-card" onclick="openModal('farming')">
+                    <span class="stat-label">Farming Reduction Rate</span>
+                    <span class="stat-value green count-up" data-target="80" data-suffix="%">80%</span>
+                    <span class="stat-desc">Tissue culture + precision aeroponics + solar power — cuts 21.6 Mt</span>
                 </div>
-                <div class="dashboard-grid cols-3">
-                    <div class="card card-accent-top green">
-                        <span class="card-label">每人每天减排量</span>
-                        <span class="card-value highlight-green">~49克</span>
-                        <span class="card-desc">CO₂e / 人 / 天（基于3,600万吨年减排总量）</span>
-                    </div>
-                    <div class="card card-accent-top">
-                        <span class="card-label">核心链减排(3,000万吨)</span>
-                        <span class="card-value">~41克</span>
-                        <span class="card-desc">CO₂e / 人 / 天，仅核心产业链环节</span>
-                    </div>
-                    <div class="card card-accent-top amber">
-                        <span class="card-label">碳交易商业价值</span>
-                        <span class="card-value highlight-amber">3,300–4,200万</span>
-                        <span class="card-desc">美元/天（基于当前碳交易行情）</span>
-                    </div>
+                <div class="stat-card accent-teal reduction-card" onclick="openModal('packaging')">
+                    <span class="stat-label">Packaging / Retail Reduction</span>
+                    <span class="stat-value teal count-up" data-target="90" data-suffix="%">90%</span>
+                    <span class="stat-desc">Zero-packaging + root-based cups + compost loop — cuts 6.08 Mt</span>
                 </div>
-                <div class="card-full">
-                    <div class="card-full-title">🏢 年减排3,600万吨的商业活动等价物</div>
-                    <div class="dashboard-grid cols-2" style="margin-top:8px;">
-                        <div class="card">
-                            <span class="card-label">🚗 停驶燃油汽车</span>
-                            <span class="card-value highlight-blue">~1,500万辆</span>
-                            <span class="card-desc">典型燃油汽车全年停驶（按每车年排2.4吨计）</span>
-                        </div>
-                        <div class="card">
-                            <span class="card-label">✈️ 取消跨大西洋航班</span>
-                            <span class="card-value highlight-amber">~6,000万次</span>
-                            <span class="card-desc">纽约至伦敦经济舱单程飞行（按每座排放0.6吨计）</span>
-                        </div>
-                        <div class="card">
-                            <span class="card-label">🏭 关闭燃煤电厂</span>
-                            <span class="card-value highlight-rose">~12座</span>
-                            <span class="card-desc">永久关闭500兆瓦燃煤发电厂（按每座年排300万吨计）</span>
-                        </div>
-                        <div class="card">
-                            <span class="card-label">🌳 新增成熟森林</span>
-                            <span class="card-value highlight-green">~3.6亿棵</span>
-                            <span class="card-desc">成熟树木的年碳吸收能力（按每树年吸碳10公斤计）</span>
-                        </div>
-                    </div>
+                <div class="stat-card accent-amber reduction-card" onclick="openModal('logistics')">
+                    <span class="stat-label">Logistics Reduction</span>
+                    <span class="stat-value amber count-up" data-target="90" data-suffix="%">90%</span>
+                    <span class="stat-desc">Localized production eliminates ocean freight + EV delivery — cuts 0.61 Mt</span>
+                </div>
+                <div class="stat-card accent-rose reduction-card" onclick="openModal('roasting')">
+                    <span class="stat-label">Roasting Elimination</span>
+                    <span class="stat-value rose">100%</span>
+                    <span class="stat-desc">No roasting needed + cold extraction + zero-carbon energy — cuts 1.8 Mt</span>
+                </div>
+                <div class="stat-card accent-blue reduction-card" onclick="openModal('total')">
+                    <span class="stat-label">Total Core Reduction</span>
+                    <span class="stat-value blue">30.09 Mt</span>
+                    <span class="stat-desc">67% of baseline supply chain emissions eliminated</span>
+                </div>
+                <div class="stat-card accent-violet reduction-card" onclick="openModal('auxiliary')">
+                    <span class="stat-label">Including Auxiliary</span>
+                    <span class="stat-value" style="font-size:1.4rem;">35 – 38 Mt</span>
+                    <span class="stat-desc">Total reduction rises to 78%–84%</span>
                 </div>
             </div>
-        </section>
 
-        <!-- ========== SECTION 6: 2050 VISION ========== -->
-        <section class="section" id="vision2050">
-            <div class="section-inner">
-                <div class="section-header">
-                    <span class="section-tag">· 2050 愿景 ·</span>
-                    <h2 class="section-title">2050年的生态图景预测</h2>
-                    <p class="section-subtitle">当创新咖啡技术持续推广至2050年，地球将迎来可见的自然复原——天空更蓝、植物更健康、水资源压力显著缓解。</p>
-                </div>
-                <div class="dashboard-grid cols-3">
-                    <div class="card card-accent-top blue">
-                        <span class="card-icon">☀️</span>
-                        <span class="card-label">天有多蓝？</span>
-                        <span class="card-value highlight-blue" style="font-size:1.1rem;">能见度↑ 蓝天日↑</span>
-                        <span class="card-desc">NOx、SOx、黑碳颗粒大幅下降，灰霾减少，赤道农业烧荒停止，天空更清澈。</span>
-                    </div>
-                    <div class="card card-accent-top green">
-                        <span class="card-icon">🌱</span>
-                        <span class="card-label">植物有多健康？</span>
-                        <span class="card-value highlight-green" style="font-size:1.1rem;">生物多样性↑</span>
-                        <span class="card-desc">零毁林种植，数百万公顷雨林恢复；无化肥农药径流，传粉昆虫种群恢复，土壤微生物复苏。</span>
-                    </div>
-                    <div class="card card-accent-top">
-                        <span class="card-icon">💧</span>
-                        <span class="card-label">水资源有什么变化？</span>
-                        <span class="card-value" style="font-size:1.1rem;">节水95%以上</span>
-                        <span class="card-desc">封闭雾培循环用水，每年节约数百亿立方米虚拟水，江河湖泊生态流量得以维持。</span>
-                    </div>
-                </div>
-                <div class="highlight-box water">
-                    🌊 <strong>关键数据：</strong>传统咖啡种植每公斤生豆需消耗约<strong>28,000升</strong>水，而NAPELL BIO的封闭雾培系统可使水耗降低<strong>95%以上</strong>。到2050年，这项技术每年可节约<strong>数百亿立方米</strong>的虚拟水资源——这些水足以留在江河、湖泊中维持健康的生态流量，或用于缓解地方水资源短缺。
+            <!-- Reduction Detail Table -->
+            <div id="reduction-table"></div>
+            <div class="panel reveal">
+                <div class="panel-title">Detailed Reduction by Chain Segment (Median: 45 Mt baseline)</div>
+                <div class="table-wrap" style="max-height:360px;">
+                    <table>
+                        <thead>
+                            <tr><th>Segment</th><th class="num">Baseline (Mt)</th><th class="num">Reduction Rate</th><th class="num">Reduction (Mt)</th><th class="num">Residual (Mt)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Farming &amp; Processing</td><td class="num">27.00</td><td class="num">80%</td><td class="num" style="color:#22c55e;">21.60</td><td class="num">5.40</td></tr>
+                            <tr><td>Packaging / Retail / Consumption</td><td class="num">6.75</td><td class="num">90%</td><td class="num" style="color:#22c55e;">6.08</td><td class="num">0.68</td></tr>
+                            <tr><td>Logistics</td><td class="num">0.68</td><td class="num">90%</td><td class="num" style="color:#22c55e;">0.61</td><td class="num">0.07</td></tr>
+                            <tr><td>Roasting</td><td class="num">1.80</td><td class="num">100%</td><td class="num" style="color:#f43f5e;">1.80</td><td class="num">0.00</td></tr>
+                            <tr><td>Other (Cafes, Waste, etc.)</td><td class="num">8.77</td><td class="num">0%</td><td class="num">0.00</td><td class="num">8.77</td></tr>
+                            <tr style="font-weight:700;border-top:2px solid var(--border);"><td>Total</td><td class="num">45.00</td><td class="num">&mdash;</td><td class="num" style="color:#22c55e;">30.09</td><td class="num">14.91</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ========== SECTION 7: WATER ========== -->
-        <section class="section" id="water">
-            <div class="section-inner">
-                <div class="section-header">
-                    <span class="section-tag">· 水资源节约 ·</span>
-                    <h2 class="section-title">节水成果具象化：拯救生命的水</h2>
-                    <p class="section-subtitle">这些被节约的巨量水资源，可以直接转化为拯救生命的源泉——尤其对处于贫瘠、战争与极端缺水中的地区。</p>
+    <!-- ========== PAGE: IMPACT (Per Capita & Equivalents) ========== -->
+    <section class="page" id="page-impact">
+        <div class="page-content">
+            <div id="percapita"></div>
+            <div class="page-header animate-fade-up stagger-1">
+                <span class="page-badge violet">Individual Impact</span>
+                <h1 class="page-title">Per Capita Reduction &amp; Real-World Equivalents</h1>
+                <p class="page-subtitle">Based on 2 billion coffee consumers worldwide (EDGAR 2024 global GHG: 53.0 Gt CO&#8322;eq). Translating 36 Mt/year reduction into tangible daily per-person figures.</p>
+            </div>
+
+            <div class="dash-grid cols-3 reveal" style="margin-bottom:20px;">
+                <div class="stat-card accent-green">
+                    <span class="stat-label">Per Person Daily Reduction</span>
+                    <span class="stat-value green">~49g</span>
+                    <span class="stat-desc">CO&#8322;e / person / day (based on 36 Mt total annual reduction)</span>
                 </div>
-                <div class="dashboard-grid cols-3">
-                    <div class="card card-accent-top blue">
-                        <span class="card-label">全球缺水人口</span>
-                        <span class="card-value highlight-blue">21–22亿</span>
-                        <span class="card-desc">无法稳定获得安全饮用水；约40亿人每年至少一个月面临严重缺水</span>
-                    </div>
-                    <div class="card card-accent-top rose">
-                        <span class="card-label">加沙：极端缺水</span>
-                        <span class="card-value highlight-rose">2–15升/人/天</span>
-                        <span class="card-desc">长期冲突与封锁下，200多万居民人均日可用水不足3升（可饮用水不足2升）</span>
-                    </div>
-                    <div class="card card-accent-top green">
-                        <span class="card-label">1公斤咖啡的节水意义</span>
-                        <span class="card-value highlight-green">≈2.66万升</span>
-                        <span class="card-desc">仅种植1公斤咖啡节约的水，可满足1,773名缺水民众一天的基本生存所需</span>
-                    </div>
+                <div class="stat-card accent-teal">
+                    <span class="stat-label">Core Chain Only (30 Mt)</span>
+                    <span class="stat-value teal">~41g</span>
+                    <span class="stat-desc">CO&#8322;e / person / day — core supply chain segments only</span>
                 </div>
-                <div class="card-full">
-                    <div class="card-full-title">🌍 节水拯救生命：具象化场景</div>
-                    <div class="dashboard-grid cols-2" style="margin-top:8px;">
-                        <div class="highlight-box crisis">
-                            <strong>🚨 加沙地带：</strong>仅需节约水量的极小一部分（约<strong>5,000万立方米</strong>），就几乎能满足加沙全年的市政用水需求。200多万居民中的每个家庭都能获得清洁饮水，大幅降低以水传播的疾病风险，在绝望中点亮希望。
-                        </div>
-                        <div class="highlight-box water">
-                            <strong>🌍 也门 & 撒哈拉以南非洲：</strong>同样的节水规模可为数百万流离失所者提供安全水源，支撑基础医疗和农业生产，缓解因缺水引发的冲突。相当于每年为全球缺水最严重的国家（卡塔尔、以色列、黎巴嫩等）提供数倍于其全年淡水抽取量的虚拟水补给。
-                        </div>
-                        <div class="highlight-box">
-                            <strong>🇮🇳 印度：</strong>约3.3亿人正遭受干旱袭击。创新节水技术为农业及民生用水提供宝贵的替代方案，将等同于数千万乃至上亿人年需水量的水资源保留在自然循环中。
-                        </div>
-                        <div class="highlight-box water">
-                            <strong>💧 关键流域：</strong>使尼罗河、幼发拉底河、约旦河等关键流域的生态基流得到维持，河流和地下水系统压力得到显著、积极的缓解。这些水不再被咖啡的"水足迹"所消耗，而是留存在自然中，成为稳定脆弱区域社会与生态的<strong>"和平之水"</strong>。
-                        </div>
-                    </div>
-                </div>
-                <div class="highlight-box water" style="text-align:center;">
-                    💎 <strong>核心信息：</strong>全球仍有超过<strong>7.85亿人</strong>缺乏基本饮用水服务。NAPELL BIO的创新技术每年节约的数百亿立方米水，若重新分配，可彻底改变数十亿人的生存状况——这些水足以留在江河、湖泊中维持健康的生态流量，或用于缓解地方水资源短缺，使得许多地区的河流和地下水系统压力得到显著、积极的缓解。
+                <div class="stat-card accent-amber">
+                    <span class="stat-label">Annual Carbon Market Value</span>
+                    <span class="stat-value amber" style="font-size:1.3rem;">$2.5 – 6.8 B</span>
+                    <span class="stat-desc">At 2024 EU ETS (~€70/t) &amp; EPA social cost of carbon (~$190/t)</span>
                 </div>
             </div>
-        </section>
 
-        <!-- ========== SECTION 8: CONTACT ========== -->
-        <section class="section" id="contact" style="min-height:auto;padding-bottom:80px;">
-            <div class="section-inner">
-                <div class="section-header">
-                    <span class="section-tag">· 联系我们 ·</span>
-                    <h2 class="section-title">NAPELL BIO</h2>
-                    <p class="section-subtitle">创新咖啡技术的引领者。如需合作、投资或了解更多信息，请通过以下方式与我们联系。</p>
-                </div>
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <span class="contact-icon">💬</span>
-                        <span class="contact-label">WhatsApp</span>
-                        <span class="contact-value">+852 9318 8252</span>
+            <!-- Equivalents -->
+            <div id="equivalents"></div>
+            <div class="panel reveal" style="margin-bottom:20px;">
+                <div class="panel-title">36 Mt Annual Reduction &mdash; What It Equals (0.068% of EDGAR 2024 Global GHG)</div>
+                <div class="dash-grid cols-2" style="margin-top:12px;">
+                    <div class="stat-card accent-blue">
+                        <span class="stat-label">&#128663; Gasoline Cars Off Road</span>
+                        <span class="stat-value blue">~15 Million</span>
+                        <span class="stat-desc">Typical passenger vehicles parked for an entire year (2.4 t/yr each)</span>
                     </div>
-                    <div class="contact-card">
-                        <span class="contact-icon">💚</span>
-                        <span class="contact-label">微信</span>
-                        <span class="contact-value">+86 15800 222338</span>
+                    <div class="stat-card accent-amber">
+                        <span class="stat-label">&#9992; Canceled Transatlantic Flights</span>
+                        <span class="stat-value amber">~60 Million</span>
+                        <span class="stat-desc">NYC&ndash;London economy one-way seats (0.6 t per seat)</span>
                     </div>
-                    <div class="contact-card">
-                        <span class="contact-icon">📧</span>
-                        <span class="contact-label">电子邮件</span>
-                        <span class="contact-value">erik.wong@napell.bio</span>
+                    <div class="stat-card accent-rose">
+                        <span class="stat-label">&#127981; Coal Plants Shut Down</span>
+                        <span class="stat-value rose">~12 Plants</span>
+                        <span class="stat-desc">Permanent closure of 500 MW coal-fired plants (3 Mt/yr each)</span>
                     </div>
-                    <div class="contact-card">
-                        <span class="contact-icon">🏢</span>
-                        <span class="contact-label">公司名称</span>
-                        <span class="contact-value">NAPELL BIO</span>
+                    <div class="stat-card accent-green">
+                        <span class="stat-label">&#127795; Mature Forest Growth</span>
+                        <span class="stat-value green">~360 Million Trees</span>
+                        <span class="stat-desc">Annual carbon absorption of mature trees (10 kg C/tree/year)</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
+    <!-- ========== PAGE: VISION 2050 + WATER ========== -->
+    <section class="page" id="page-vision">
+        <div class="page-content">
+            <div id="vision-metrics"></div>
+            <div class="page-header animate-fade-up stagger-1">
+                <span class="page-badge teal">Vision 2050</span>
+                <h1 class="page-title">2050 Ecological Outlook</h1>
+                <p class="page-subtitle">When innovative coffee technology scales through 2050, the planet will see measurable restoration — clearer skies, healthier ecosystems, and dramatically reduced water stress.</p>
+            </div>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="footer">
-        <p>© 2026 NAPELL BIO. All rights reserved. | 数据来源：EDGAR 2022 · Fairatmos · 星巴克产业报告 · DOAJ | 创新咖啡·零碳未来</p>
-    </footer>
+            <div class="dash-grid cols-3 reveal" style="margin-bottom:20px;">
+                <div class="stat-card accent-blue">
+                    <span class="stat-icon">&#9728;</span>
+                    <span class="stat-label">How Blue Will the Sky Be?</span>
+                    <span class="stat-value blue" style="font-size:1.1rem;">Visibility &#8593; Clear Days &#8593;</span>
+                    <span class="stat-desc">NOx, SOx, black carbon plummet. Equatorial slash-and-burn ends. Skies clear.</span>
+                </div>
+                <div class="stat-card accent-green">
+                    <span class="stat-icon">&#127807;</span>
+                    <span class="stat-label">How Healthy Are Plants?</span>
+                    <span class="stat-value green" style="font-size:1.1rem;">Biodiversity &#8593;</span>
+                    <span class="stat-desc">Zero deforestation. Millions of hectares of rainforest restored. Pollinators return. Soil microbes revive.</span>
+                </div>
+                <div class="stat-card accent-teal">
+                    <span class="stat-icon">&#128167;</span>
+                    <span class="stat-label">What About Water?</span>
+                    <span class="stat-value teal" style="font-size:1.1rem;">95%+ Water Saved</span>
+                    <span class="stat-desc">Closed-loop aeroponics recycles water. Billions of cubic meters stay in rivers and lakes annually.</span>
+                </div>
+            </div>
 
-    <!-- ==================== SCRIPTS ==================== -->
-    <script>
-        (function() {
-            const navLinks = document.querySelectorAll('#navLinks a');
-            const sections = document.querySelectorAll('.section');
+            <div class="highlight blue reveal" style="margin-bottom:40px;">
+                <strong>&#127754; Key Data Point:</strong> Traditional coffee farming consumes ~<strong>28,000 litres</strong> of water per kilogram of green beans. NAPELL.COM&rsquo;s closed-loop aeroponic system reduces water use by <strong>over 95%</strong>. By 2050, this technology could save <strong>hundreds of billions of cubic metres</strong> of virtual water annually — enough to sustain healthy ecological flows in rivers and lakes, or alleviate acute regional water scarcity.
+            </div>
 
-            // Highlight active nav link on scroll
-            function updateActiveLink() {
-                let currentId = '';
-                const scrollPos = window.scrollY + 80;
-                sections.forEach(section => {
-                    const top = section.offsetTop;
-                    const bottom = top + section.offsetHeight;
-                    if (scrollPos >= top && scrollPos < bottom) {
-                        currentId = section.getAttribute('id');
+            <!-- Water Section -->
+            <div id="water-section"></div>
+            <div class="page-header animate-fade-up stagger-1">
+                <span class="page-badge blue">Water Conservation</span>
+                <h1 class="page-title">Water Saved = Lives Saved</h1>
+                <p class="page-subtitle">The immense volume of water conserved translates directly into lifelines — especially for regions trapped in poverty, conflict, and extreme water stress.</p>
+            </div>
+
+            <div class="dash-grid cols-3 reveal" style="margin-bottom:20px;">
+                <div class="stat-card accent-blue">
+                    <span class="stat-label">Global Water-Scarce Population</span>
+                    <span class="stat-value blue">2.1 – 2.2 Billion</span>
+                    <span class="stat-desc">No reliable access to safe drinking water; ~4 billion face severe scarcity at least one month/year</span>
+                </div>
+                <div class="stat-card accent-rose">
+                    <span class="stat-label">Gaza: Extreme Scarcity</span>
+                    <span class="stat-value rose" style="font-size:1.3rem;">2 – 15 L/person/day</span>
+                    <span class="stat-desc">2M+ residents under blockade — average daily availability under 3 litres (potable under 2 L)</span>
+                </div>
+                <div class="stat-card accent-green">
+                    <span class="stat-label">1kg Coffee = Water Saved</span>
+                    <span class="stat-value green">~26,600 L</span>
+                    <span class="stat-desc">Saving water from just 1 kg of coffee meets the basic survival needs of 1,773 water-scarce individuals for a day</span>
+                </div>
+            </div>
+
+            <div class="dash-grid cols-2 reveal" style="margin-bottom:20px;">
+                <div class="highlight rose">
+                    <strong>&#128680; Gaza Strip:</strong> A tiny fraction of the water saved (~<strong>50 million m&sup3;</strong>) could nearly cover Gaza&rsquo;s entire annual municipal water needs. Every family among 2M+ residents would gain access to clean water, drastically reducing waterborne disease risk and kindling hope amid despair.
+                </div>
+                <div class="highlight blue">
+                    <strong>&#127758; Yemen &amp; Sub-Saharan Africa:</strong> The same conservation scale could provide safe water for millions of displaced persons, support basic healthcare and agriculture, and ease water-driven conflicts. Equivalent to supplying several times the annual freshwater withdrawal of the world&rsquo;s most water-stressed nations (Qatar, Israel, Lebanon, etc.).
+                </div>
+                <div class="highlight teal">
+                    <strong>&#127470;&#127475; India:</strong> ~330 million people are affected by drought. Innovative water-saving technology offers an alternative for agriculture and livelihoods, keeping the equivalent of tens or even hundreds of millions of people&rsquo;s annual water needs within the natural water cycle.
+                </div>
+                <div class="highlight blue">
+                    <strong>&#128167; Critical Watersheds:</strong> Ecological base flows in the Nile, Euphrates, Jordan, and other critical river basins are sustained. These waters are no longer consumed by coffee&rsquo;s &ldquo;water footprint&rdquo; — they remain in nature as <strong>&ldquo;Water for Peace,&rdquo;</strong> stabilizing fragile social and ecological systems.
+                </div>
+            </div>
+
+            <div class="highlight blue reveal" style="text-align:center;">
+                <strong>&#128142; Core Message:</strong> Over <strong>785 million people</strong> still lack basic drinking water services. The hundreds of billions of cubic metres saved annually by NAPELL.COM&rsquo;s technology, if reallocated, could fundamentally transform the survival prospects of billions — keeping water in rivers and lakes to sustain healthy ecological flows, or alleviating acute regional water scarcity so that river and groundwater stress across many regions sees meaningful, positive relief.
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PAGE: CONTACT ========== -->
+    <section class="page" id="page-contact">
+        <div class="page-content" style="max-width:800px;">
+            <div class="page-header animate-fade-up stagger-1" style="text-align:center;">
+                <span class="page-badge">Connect</span>
+                <h1 class="page-title">NAPELL.COM</h1>
+                <p class="page-subtitle" style="margin:0 auto;">Pioneering coffee technology. For partnerships, investment, or more information, reach out below.</p>
+            </div>
+
+            <div class="contact-grid reveal">
+                <div class="contact-card">
+                    <span class="c-icon">&#128172;</span>
+                    <span class="c-label">WhatsApp</span>
+                    <span class="c-value">+852 9318 8252</span>
+                </div>
+                <div class="contact-card">
+                    <span class="c-icon">&#128153;</span>
+                    <span class="c-label">WeChat</span>
+                    <span class="c-value">+86 15800 222338</span>
+                </div>
+                <div class="contact-card">
+                    <span class="c-icon">&#128231;</span>
+                    <span class="c-label">Email</span>
+                    <span class="c-value">erik.wong@napell.bio</span>
+                </div>
+                <div class="contact-card">
+                    <span class="c-icon">&#127970;</span>
+                    <span class="c-label">Company</span>
+                    <span class="c-value">NAPELL.COM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+    <p>&copy; 2026 NAPELL.COM. All rights reserved. &nbsp;|&nbsp; Data: EDGAR 2024 &middot; Fairatmos &middot; Starbucks Industry Reports &middot; DOAJ &nbsp;|&nbsp; Reinventing Coffee. Zero Carbon Future.</p>
+</footer>
+
+<!-- Modal Overlay -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()" title="Close">&times;</button>
+        <div class="modal-icon" id="modalIcon"></div>
+        <div class="modal-title" id="modalTitle"></div>
+        <span class="modal-badge" id="modalBadge"></span>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-stats" id="modalStats"></div>
+    </div>
+</div>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+(function() {
+    // ===== COUNTRY DATA =====
+    const countries = [
+        {n:1,name:'Myanmar',v:'115,080,000'},{n:2,name:'Czech Republic',v:'114,440,000'},
+        {n:3,name:'Kenya',v:'107,980,000'},{n:4,name:'Morocco',v:'106,600,000'},
+        {n:5,name:'Romania',v:'105,850,000'},{n:6,name:'Libya',v:'95,930,000'},
+        {n:7,name:'Peru',v:'94,050,000'},{n:8,name:'North Korea',v:'90,150,000'},
+        {n:9,name:'Tanzania',v:'89,820,000'},{n:10,name:'Belarus',v:'84,280,000'},
+        {n:11,name:'New Zealand',v:'84,210,000'},{n:12,name:'Mongolia',v:'83,700,000'},
+        {n:13,name:'Israel',v:'79,580,000'},{n:14,name:'Singapore',v:'74,290,000'},
+        {n:15,name:'Ecuador',v:'73,600,000'},{n:16,name:'Austria',v:'72,920,000'},
+        {n:17,name:'Greece',v:'69,270,000'},{n:18,name:'Angola',v:'67,700,000'},
+        {n:19,name:'Serbia',v:'67,210,000'},{n:20,name:'Bahrain',v:'63,730,000'},
+        {n:21,name:'Azerbaijan',v:'62,550,000'},{n:22,name:'Hungary',v:'60,930,000'},
+        {n:23,name:'Ireland',v:'57,850,000'},{n:24,name:'Nepal',v:'56,830,000'},
+        {n:25,name:'Norway',v:'56,720,000'},{n:26,name:'DR Congo',v:'56,110,000'},
+        {n:27,name:'Bolivia',v:'55,190,000'},{n:28,name:'Uganda',v:'53,370,000'},
+        {n:29,name:'Bulgaria',v:'53,370,000'},{n:30,name:'Portugal',v:'53,000,000'},
+        {n:31,name:'Sweden',v:'49,120,000'},{n:32,name:'Cambodia',v:'48,770,000'},
+        {n:33,name:'Dominican Republic',v:'48,400,000'},{n:34,name:'Ghana',v:'48,270,000'},
+        {n:35,name:'Mali',v:'45,460,000'},{n:36,name:'Slovakia',v:'44,780,000'},
+        {n:37,name:'Guatemala',v:'43,980,000'},{n:38,name:'Tunisia',v:'43,580,000'},
+        {n:39,name:'Switzerland',v:'43,450,000'},{n:40,name:'Finland',v:'43,450,000'},
+        {n:41,name:'Niger',v:'42,330,000'},{n:42,name:'Laos',v:'42,060,000'},
+        {n:43,name:'Denmark',v:'41,830,000'},{n:44,name:'Uruguay',v:'41,630,000'},
+        {n:45,name:'Paraguay',v:'41,620,000'},{n:46,name:'Syria',v:'41,210,000'},
+        {n:47,name:'Cuba',v:'39,400,000'},{n:48,name:'Cameroon',v:'39,380,000'},
+        {n:49,name:'Sri Lanka',v:'38,400,000'},{n:50,name:'Burkina Faso',v:'34,460,000'},
+        {n:51,name:'Trinidad and Tobago',v:'34,190,000'},{n:52,name:'Mozambique',v:'33,950,000'},
+        {n:53,name:'Jordan',v:'33,410,000'},{n:54,name:'Madagascar',v:'33,150,000'},
+        {n:55,name:'Somalia',v:'32,500,000'},{n:56,name:'Yemen',v:'32,240,000'},
+        {n:57,name:"C\u00f4te d'Ivoire",v:'32,180,000'},{n:58,name:'Zimbabwe',v:'31,020,000'},
+        {n:59,name:'Zambia',v:'30,480,000'},{n:60,name:'Afghanistan',v:'29,460,000'},
+        {n:61,name:'Bosnia and Herzegovina',v:'29,400,000'},{n:62,name:'Senegal',v:'28,840,000'},
+        {n:63,name:'Guinea',v:'28,630,000'},{n:64,name:'Croatia',v:'25,010,000'},
+        {n:65,name:'Lebanon',v:'24,670,000'},{n:66,name:'Congo',v:'23,700,000'},
+        {n:67,name:'Honduras',v:'22,920,000'},{n:68,name:'Kyrgyzstan',v:'21,700,000'},
+        {n:69,name:'Tajikistan',v:'21,440,000'},{n:70,name:'Gabon',v:'21,400,000'},
+        {n:71,name:'Panama',v:'21,280,000'},{n:72,name:'Lithuania',v:'20,680,000'},
+        {n:73,name:'Nicaragua',v:'20,630,000'},{n:74,name:'Malawi',v:'19,710,000'},
+        {n:75,name:'Georgia',v:'19,050,000'},{n:76,name:'Benin',v:'16,700,000'},
+        {n:77,name:'Mauritania',v:'16,510,000'},{n:78,name:'Costa Rica',v:'16,470,000'},
+        {n:79,name:'Puerto Rico',v:'16,060,000'},{n:80,name:'Slovenia',v:'15,990,000'},
+        {n:81,name:'Estonia',v:'14,360,000'},{n:82,name:'Haiti',v:'13,660,000'},
+        {n:83,name:'Moldova',v:'13,540,000'},{n:84,name:'El Salvador',v:'13,050,000'},
+        {n:85,name:'Namibia',v:'12,890,000'},{n:86,name:'Botswana',v:'12,710,000'},
+        {n:87,name:'Central African Republic',v:'12,500,000'},{n:88,name:'Brunei',v:'12,160,000'},
+        {n:89,name:'North Macedonia',v:'11,370,000'},{n:90,name:'Latvia',v:'10,960,000'},
+        {n:91,name:'Armenia',v:'10,840,000'},{n:92,name:'Togo',v:'10,610,000'},
+        {n:93,name:'Cyprus',v:'10,320,000'},{n:94,name:'Papua New Guinea',v:'9,640,000'},
+        {n:95,name:'Guyana',v:'8,190,000'},{n:96,name:'Jamaica',v:'8,160,000'},
+        {n:97,name:'Luxembourg',v:'7,860,000'},{n:98,name:'Albania',v:'7,670,000'},
+        {n:99,name:'Rwanda',v:'7,490,000'},{n:100,name:'Burundi',v:'7,050,000'},
+        {n:101,name:'Equatorial Guinea',v:'6,980,000'},{n:102,name:'Sierra Leone',v:'6,940,000'},
+        {n:103,name:'New Caledonia',v:'6,610,000'},{n:104,name:'Eritrea',v:'6,400,000'},
+        {n:105,name:'Mauritius',v:'6,200,000'},{n:106,name:'Liberia',v:'4,530,000'},
+        {n:107,name:'Iceland',v:'4,170,000'},{n:108,name:'Suriname',v:'3,740,000'},
+        {n:109,name:'Fiji',v:'3,400,000'},{n:110,name:'Eswatini',v:'3,290,000'},
+        {n:111,name:'Bhutan',v:'3,250,000'},{n:112,name:'Macao, China',v:'3,120,000'},
+        {n:113,name:'Maldives',v:'3,090,000'},{n:114,name:'Guinea-Bissau',v:'3,000,000'},
+        {n:115,name:'Reunion',v:'2,920,000'},{n:116,name:'Lesotho',v:'2,600,000'},
+        {n:117,name:'Curacao',v:'2,530,000'},{n:118,name:'Djibouti',v:'2,130,000'},
+        {n:119,name:'Bahamas',v:'2,050,000'},{n:120,name:'Malta',v:'2,030,000'},
+        {n:121,name:'Timor-Leste',v:'2,010,000'},{n:122,name:'Gambia',v:'1,890,000'},
+        {n:123,name:'French Polynesia',v:'1,370,000'},{n:124,name:'Seychelles',v:'1,340,000'},
+        {n:125,name:'Cabo Verde',v:'1,230,000'},{n:126,name:'Martinique',v:'1,220,000'},
+        {n:127,name:'Barbados',v:'990,000'},{n:128,name:'Belize',v:'920,000'},
+        {n:129,name:'Comoros',v:'760,000'},{n:130,name:'Solomon Islands',v:'720,000'},
+        {n:131,name:'Gibraltar',v:'710,000'},{n:132,name:'Western Sahara',v:'680,000'},
+        {n:133,name:'Vanuatu',v:'670,000'},{n:134,name:'Samoa',v:'650,000'},
+        {n:135,name:'Greenland',v:'650,000'},{n:136,name:'French Guiana',v:'570,000'},
+        {n:137,name:'Aruba',v:'560,000'},{n:138,name:'Saint Lucia',v:'450,000'},
+        {n:139,name:'Cayman Islands',v:'390,000'},{n:140,name:'Antigua and Barbuda',v:'390,000'},
+        {n:141,name:'Bermuda',v:'380,000'},{n:142,name:'Tonga',v:'340,000'},
+        {n:143,name:'Sao Tome and Principe',v:'300,000'},{n:144,name:'Grenada',v:'200,000'},
+        {n:145,name:'Saint Kitts and Nevis',v:'170,000'},{n:146,name:'Falkland Islands',v:'170,000'},
+        {n:147,name:'Cook Islands',v:'150,000'},{n:148,name:'Saint Vincent and the Grenadines',v:'150,000'},
+        {n:149,name:'Dominica',v:'150,000'},{n:150,name:'Kiribati',v:'130,000'},
+        {n:151,name:'Turks and Caicos',v:'110,000'},{n:152,name:'British Virgin Islands',v:'90,000'},
+        {n:153,name:'Saint Pierre and Miquelon',v:'50,000'},{n:154,name:'Faroe Islands',v:'50,000'},
+        {n:155,name:'Montserrat',v:'40,000'},{n:156,name:'Anguilla',v:'30,000'},
+        {n:157,name:'Saint Helena',v:'20,000'},{n:158,name:'Niue',v:'20,000'}
+    ];
+
+    // Populate country table
+    const tbody = document.getElementById('countryTableBody');
+    countries.forEach(c => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${c.n}</td><td>${c.name}</td><td class="num">${c.v}</td>`;
+        tbody.appendChild(tr);
+    });
+
+    // ===== PAGE NAVIGATION =====
+    const navLinks = document.querySelectorAll('[data-page]');
+    const pages = document.querySelectorAll('.page');
+    const navMenuLinks = document.querySelectorAll('#navMenu > li > a');
+
+    function navigateTo(pageName, scrollTarget) {
+        // Hide all pages
+        pages.forEach(p => p.classList.remove('active'));
+        // Show target page
+        const page = document.getElementById('page-' + pageName);
+        if (page) {
+            page.classList.add('active');
+            // Re-trigger reveal animations
+            setTimeout(() => {
+                page.querySelectorAll('.reveal').forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        el.classList.add('visible');
                     }
                 });
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + currentId) {
-                        link.classList.add('active');
+                animateBars(page);
+                // Re-observe counters in this page
+                page.querySelectorAll('.count-up').forEach(el => {
+                    if (el.getAttribute('data-target') && !el.dataset.observed) {
+                        counterObserver.observe(el);
+                        el.dataset.observed = '1';
+                    }
+                });
+            }, 100);
+        }
+        // Update active nav
+        navMenuLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-page') === pageName) {
+                link.classList.add('active');
+            }
+        });
+        // Scroll to target
+        if (scrollTarget) {
+            setTimeout(() => {
+                const target = document.getElementById(scrollTarget);
+                if (target) {
+                    const navH = document.getElementById('navbar').offsetHeight;
+                    window.scrollTo({ top: target.offsetTop - navH - 20, behavior: 'smooth' });
+                }
+            }, 150);
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        // Close mobile menu
+        document.getElementById('navMenu').classList.remove('open');
+    }
+
+    // Nav click handlers
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const page = this.getAttribute('data-page');
+            const scroll = this.getAttribute('data-scroll');
+            if (page) navigateTo(page, scroll);
+        });
+    });
+
+    // ===== MOBILE MENU =====
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+    });
+
+    // Mobile dropdown toggle
+    document.querySelectorAll('#navMenu > li > a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 && this.parentElement.querySelector('.dropdown')) {
+                e.preventDefault();
+                this.parentElement.classList.toggle('open');
+                const page = this.getAttribute('data-page');
+                if (page) navigateTo(page);
+            }
+        });
+    });
+
+    // ===== SCROLL REVEAL =====
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Animate bars inside revealed panels
+                const bars = entry.target.querySelectorAll('.bar-fill');
+                bars.forEach(bar => {
+                    const w = bar.getAttribute('data-width');
+                    if (w) {
+                        bar.style.transition = 'width 1s cubic-bezier(0.4, 0, 0.2, 1)';
+                        bar.style.width = w;
+                    }
+                });
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ===== BAR CHART ANIMATION =====
+    function animateBars(container) {
+        const bars = (container || document).querySelectorAll('.bar-fill');
+        bars.forEach(bar => {
+            const w = bar.getAttribute('data-width');
+            if (w) {
+                bar.style.transition = 'none';
+                bar.style.width = '0%';
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        bar.style.transition = 'width 1s cubic-bezier(0.4, 0, 0.2, 1)';
+                        bar.style.width = w;
+                    });
+                });
+            }
+        });
+    }
+
+    // Initial bar animation for visible page
+    setTimeout(() => animateBars(document), 300);
+
+    // ===== COUNTER ANIMATION =====
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseFloat(el.getAttribute('data-target'));
+                const suffix = el.getAttribute('data-suffix') || '';
+                const duration = 1500;
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // Ease-out cubic
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = target * eased;
+                    el.textContent = (current >= 100 ? Math.round(current) : current.toFixed(target < 10 ? 1 : 0)) + suffix;
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        el.textContent = (target >= 100 ? Math.round(target) : target) + suffix;
+                    }
+                }
+
+                requestAnimationFrame(update);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.count-up').forEach(el => {
+        if (el.getAttribute('data-target')) counterObserver.observe(el);
+    });
+
+    // ===== RING METERS (SVG) =====
+    function buildRingMeters() {
+        const container = document.getElementById('ringMeters');
+        if (!container || container.children.length > 0) return;
+
+        const data = [
+            { label: 'Coffee (Low)', value: 33, max: 130, color: '#14b8a6' },
+            { label: 'Coffee (High)', value: 125, max: 130, color: '#f43f5e' },
+            { label: 'India (#3)', value: 4134, max: 6000, color: '#f59e0b' },
+            { label: 'USA (#2)', value: 5961, max: 8000, color: '#3b82f6' },
+            { label: 'China (#1)', value: 15944, max: 20000, color: '#8b5cf6' }
+        ];
+
+        data.forEach(d => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'ring-meter';
+            const radius = 52;
+            const circumference = 2 * Math.PI * radius;
+            const pct = d.value / d.max;
+            const offset = circumference * (1 - pct);
+
+            wrapper.innerHTML = `
+                <svg viewBox="0 0 130 130">
+                    <circle cx="65" cy="65" r="${radius}" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
+                    <circle cx="65" cy="65" r="${radius}" fill="none" stroke="${d.color}" stroke-width="8"
+                        stroke-linecap="round" stroke-dasharray="${circumference}" stroke-dashoffset="${circumference}"
+                        transform="rotate(-90 65 65)" class="ring-path" data-offset="${offset}"
+                        style="transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);"/>
+                    <text x="65" y="56" text-anchor="middle" fill="#f4f4f5" font-size="${d.value > 999 ? '14' : '18'}" font-weight="800" font-family="Inter,sans-serif">${d.value.toLocaleString()}</text>
+                    <text x="65" y="74" text-anchor="middle" fill="#6b6b75" font-size="10" font-weight="500" font-family="Inter,sans-serif">Mt CO&#8322;e</text>
+                </svg>
+                <span class="ring-label">${d.label}</span>
+            `;
+            container.appendChild(wrapper);
+        });
+
+        // Animate rings
+        const ringObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const paths = entry.target.querySelectorAll('.ring-path');
+                    paths.forEach(path => {
+                        path.style.strokeDashoffset = path.getAttribute('data-offset');
+                    });
+                    ringObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        ringObserver.observe(container);
+    }
+
+    // Build rings on page load
+    setTimeout(buildRingMeters, 200);
+
+    // ===== KEYBOARD NAVIGATION =====
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            navMenu.classList.remove('open');
+        }
+    });
+
+    // ===== CLOSE MOBILE MENU ON OUTSIDE CLICK =====
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('#navMenu') && !e.target.closest('#hamburger')) {
+            navMenu.classList.remove('open');
+        }
+    });
+
+    // ===== INITIAL: Trigger visible reveals =====
+    setTimeout(() => {
+        document.querySelectorAll('#page-home .reveal').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                el.classList.add('visible');
+                const bars = el.querySelectorAll('.bar-fill');
+                bars.forEach(bar => {
+                    const w = bar.getAttribute('data-width');
+                    if (w) {
+                        bar.style.transition = 'width 1s cubic-bezier(0.4, 0, 0.2, 1)';
+                        bar.style.width = w;
                     }
                 });
             }
+        });
+    }, 400);
 
-            window.addEventListener('scroll', updateActiveLink, { passive: true });
-            updateActiveLink();
+    console.log('%cNAPELL.COM %c— Reinventing Coffee. Zero Carbon Future.',
+        'font-weight:800;color:#22c55e;', 'color:#a1a1aa;');
+    console.log('%cAnnual reduction potential: 30–38 Mt CO₂e%c | Water savings: 95%+ vs. traditional',
+        'color:#f4f4f5;', 'color:#6b6b75;');
+    console.log('%c2B coffee consumers × ~49g CO₂e saved per person per day',
+        'color:#6b6b75;');
 
-            // Smooth scroll for nav links
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const target = document.getElementById(targetId);
-                    if (target) {
-                        const navHeight = document.querySelector('.nav').offsetHeight;
-                        const targetPosition = target.offsetTop - navHeight;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+    // ===== MODAL SYSTEM =====
+    const modalData = {
+        farming: {
+            icon: '🌱', title: 'Farming — 80% Reduction', badge: 'Cuts 21.6 Mt',
+            badgeStyle: 'background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);',
+            desc: 'Tissue culture eliminates deforestation-driven land expansion. Precision aeroponics delivers nutrients directly to roots with zero runoff, while integrated solar arrays power the entire facility. No synthetic fertilizers, no slash-and-burn, no soil degradation.',
+            stats: [
+                { val: '21.60 Mt', lbl: 'Annual CO₂e Cut' },
+                { val: '95%+', lbl: 'Less Water vs Traditional' }
+            ]
+        },
+        packaging: {
+            icon: '📦', title: 'Packaging/Retail — 90% Reduction', badge: 'Cuts 6.08 Mt',
+            badgeStyle: 'background:var(--teal-bg);color:var(--teal);border:1px solid var(--teal-border);',
+            desc: 'Zero single-use packaging: coffee cherries are grown locally and consumed fresh. Root-based biodegradable cups replace plastic and paper. Compost loops return all organic waste to the growing system. No shipping materials, no plastic liners, no landfill.',
+            stats: [
+                { val: '6.08 Mt', lbl: 'Annual CO₂e Cut' },
+                { val: '0', lbl: 'Single-Use Items' }
+            ]
+        },
+        logistics: {
+            icon: '🚚', title: 'Logistics — 90% Reduction', badge: 'Cuts 0.61 Mt',
+            badgeStyle: 'background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border);',
+            desc: 'Localized production means coffee is grown within 100 km of consumption — no ocean freight, no long-haul trucking, no refrigerated shipping. Last-mile delivery uses electric vehicles. The global coffee supply chain shrinks from ~10,000 km to under 100 km.',
+            stats: [
+                { val: '0.61 Mt', lbl: 'Annual CO₂e Cut' },
+                { val: '<100 km', lbl: 'Farm-to-Cup Distance' }
+            ]
+        },
+        roasting: {
+            icon: '🔥', title: 'Roasting — 100% Elimination', badge: 'Cuts 1.8 Mt',
+            badgeStyle: 'background:var(--rose-bg);color:var(--rose);border:1px solid var(--rose-border);',
+            desc: 'Traditional roasting burns natural gas at 200–250°C for 8–15 minutes per batch, emitting CO₂, VOCs, and particulate matter. NAPELL uses cold extraction technology — no heat, no combustion, no emissions. The complete elimination of roasting removes 1.8 Mt CO₂e from the supply chain annually.',
+            stats: [
+                { val: '1.80 Mt', lbl: 'Annual CO₂e Cut' },
+                { val: '0 kWh', lbl: 'Thermal Energy Used' }
+            ]
+        },
+        total: {
+            icon: '📊', title: 'Total Core Reduction — 30.09 Mt', badge: '67% of Baseline',
+            badgeStyle: 'background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border);',
+            desc: 'Sum of farming (21.60 Mt), packaging/retail (6.08 Mt), logistics (0.61 Mt), and roasting (1.80 Mt) reductions against a 45 Mt median baseline. The residual 14.91 Mt comes from cafes, waste management, and other auxiliary sources not yet addressed by core technology.',
+            stats: [
+                { val: '30.09 Mt', lbl: 'Core Reduction Total' },
+                { val: '67%', lbl: 'of Baseline Eliminated' }
+            ]
+        },
+        auxiliary: {
+            icon: '🚀', title: 'Including Auxiliary — 35–38 Mt', badge: '78%–84% Total',
+            badgeStyle: 'background:var(--violet-bg);color:var(--violet);border:1px solid var(--violet-border);',
+            desc: 'When auxiliary reductions are included — zero-waste cafes, compostable serviceware, consumer behavior shifts, and renewable-powered brewing — the total climbs to 35–38 Mt. At the high end this exceeds Netherlands\' entire EDGAR 2024 emissions (151 Mt × 25%). Equivalent to removing ~16 million cars from roads.',
+            stats: [
+                { val: '35–38 Mt', lbl: 'Total Reduction Range' },
+                { val: '78–84%', lbl: 'of Full Supply Chain' }
+            ]
+        }
+    };
 
-            // Animate bar charts on scroll
-            const barFills = document.querySelectorAll('.bar-fill');
-            const observerOptions = { threshold: 0.3 };
-            const barObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const bar = entry.target;
-                        const width = bar.style.width;
-                        bar.style.width = '0%';
-                        requestAnimationFrame(() => {
-                            requestAnimationFrame(() => {
-                                bar.style.width = width;
-                            });
-                        });
-                        barObserver.unobserve(bar);
-                    }
-                });
-            }, observerOptions);
+    function openModal(key) {
+        const d = modalData[key];
+        if (!d) return;
+        const overlay = document.getElementById('modalOverlay');
+        const icon = document.getElementById('modalIcon');
+        const title = document.getElementById('modalTitle');
+        const badge = document.getElementById('modalBadge');
+        const desc = document.getElementById('modalDesc');
+        const stats = document.getElementById('modalStats');
 
-            barFills.forEach(bar => barObserver.observe(bar));
+        icon.textContent = d.icon;
+        title.textContent = d.title;
+        badge.textContent = d.badge;
+        badge.setAttribute('style', d.badgeStyle);
+        desc.textContent = d.desc;
+        stats.innerHTML = d.stats.map(s =>
+            `<div class="modal-stat"><div class="ms-val">${s.val}</div><div class="ms-lbl">${s.lbl}</div></div>`
+        ).join('');
 
-            // Fade in cards on scroll
-            const cards = document.querySelectorAll('.card, .card-full, .highlight-box');
-            const cardObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                        cardObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.15 });
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    window.openModal = openModal;
 
-            cards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(16px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                cardObserver.observe(card);
-            });
+    function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    window.closeModal = closeModal;
 
-            console.log('NAPELL BIO — 创新咖啡·零碳未来');
-            console.log('全产业链年减排潜力：3,000–3,800万吨 CO₂e');
-            console.log('节水效率：传统28,000升/kg → 雾培<1,400升/kg（降低95%+）');
-            console.log('全球20亿咖啡消费者 × 每人每天约49克减排');
-        })();
-    </script>
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+    });
+})();
+</script>
+
 </body>
 </html>
